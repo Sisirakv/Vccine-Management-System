@@ -1,0 +1,14 @@
+{% extends 'Admin_Home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="card">
+    <form method="post"> {% csrf_token %}
+        <h5>Add Vaccine</h5>
+        <div class="form-row-last">
+            {{form|crispy}}
+      <br>   <input type="submit" name="submit" value="submit"><br><br>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
