@@ -39,3 +39,21 @@ def Add_Vaccine(requset):
 def viewvaccine (request):
     data=Vaccine.objects.all()
     return render (request,'AdminView_temp/viewVaccine.html',{'data':data})
+
+def Add_Reportcard(requset):
+        form = reportcardform()
+        if requset.method == "POST":
+            form = reportcardform(requset.POST)
+            if form.is_valid():
+                form.save()
+                messages.info(requset, 'Reportcard Successfully added')
+                return redirect('admin_page')
+        return render(requset, 'AdminView_temp/Add_ReportCard.html', {'form': form})
+
+def viewcard (request):
+    data=Reportcard.objects.all()
+    return render (request,'AdminView_temp/viewReportCard.html',{'data':data})
+
+def viewappointments (request):
+    data=Appointment.objects.all()
+    return render (request,'AdminView_temp/viewAppointments.html',{'data':data})

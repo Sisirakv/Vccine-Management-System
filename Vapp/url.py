@@ -16,4 +16,7 @@ urlpatterns = [
  path('View_Hospital',Admin_View.viewhospital, name='View_Hospital'),
  path('Add_Vaccine',Admin_View.Add_Vaccine,name="Add_Vaccine"),
  path('View_Vaccine',Admin_View.viewvaccine, name='View_Vaccine'),
+ path('Add_ReportCard',Admin_View.Add_Reportcard,name="Add_ReportCard"),
+ path('View_ReportCard',Admin_View.viewcard, name='View_ReportCard'),
+ path('View_Appointments', Admin_View.viewappointments, name='View_Appointments'),
 ]

@@ -56,20 +56,10 @@ class Reportcard(models.Model):
     def __str__(self):
         return self.Patient,self.Vaccine
 
-class U_Complaints(models.Model):
-    detils=models.TextField()
-    person=models.ForeignKey(User, on_delete=models.CASCADE)
-
-class N_Complaints(models.Model):
-    detils=models.TextField()
-    person=models.ForeignKey(nurse, on_delete=models.CASCADE)
 
 class adding_hospitals(models.Model):
     Hospital_name=models.CharField(max_length=20)
     H_details=models.TextField()
-
-
-
 
 class Schedule(models.Model):
     hospital=models.CharField(max_length=20)
@@ -78,8 +68,10 @@ class Schedule(models.Model):
     end_time=models.CharField(max_length=20)
 
 class Appointment(models.Model):
-    user=models.CharField(max_length=20)
-    vaccine_name=models.CharField(max_length=20)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    schedule = models.CharField(max_length=50)
+    status = models.CharField(max_length=20)
+    vaccine_name=models.ForeignKey(Vaccine, on_delete=models.CASCADE)
     vaccinated=models.CharField(max_length=20)
-    status=models.CharField(max_length=20)
-    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
+
+

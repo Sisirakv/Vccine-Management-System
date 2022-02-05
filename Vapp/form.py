@@ -32,3 +32,8 @@ class vaccineform(forms.ModelForm):
     class Meta:
         model=Vaccine
         fields=('vaccine_name','vaccine_type','Description','Approval_status')
+
+class reportcardform(forms.ModelForm):
+    class Meta:
+        model=Reportcard
+        fields=('Patient','vaccine')
