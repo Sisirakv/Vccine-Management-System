@@ -10,8 +10,8 @@ def ind(request):
     return render(request, 'Admin_Home.html')
 
 
-def home(request):
-    return render(request, 'Home_page.html')
+def Home(request):
+    return render(request, 'Home_pagemain.html')
 
 
 def login(request):
@@ -49,8 +49,11 @@ def login_views(request):
 #     return render(request, 'indexloginUser.html')
 #
 #
-# def N_exist(request):
-#     return render(request, 'indexloginNurse.html')
+def nurseHome(request):
+    return render(request, 'Nurse_Home.html')
+
+def userHome(request):
+    return render(request, 'User_Home.html')
 
 
 def nurse_register(request):

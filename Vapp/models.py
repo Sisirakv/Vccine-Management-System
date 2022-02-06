@@ -54,7 +54,7 @@ class Reportcard(models.Model):
     vaccine = models.ForeignKey(Vaccine, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.Patient,self.Vaccine
+        return self.Patient,self.vaccine
 
 
 class adding_hospitals(models.Model):

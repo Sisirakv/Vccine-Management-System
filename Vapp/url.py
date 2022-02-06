@@ -6,7 +6,7 @@ from Vapp.Admin_View import *
 
 urlpatterns = [
  path('admin_page',views.ind,name="admin_page"),
- path('',views.home,name='home'),
+ path('',views.Home,name=''),
  path('login',views.login_views,name='login'),
  path('Nurse_regForm',views.nurse_register,name="Nurse_regForm"),
  path('User_regForm',views.user_register,name="User_regForm"),
@@ -19,4 +19,9 @@ urlpatterns = [
  path('Add_ReportCard',Admin_View.Add_Reportcard,name="Add_ReportCard"),
  path('View_ReportCard',Admin_View.viewcard, name='View_ReportCard'),
  path('View_Appointments', Admin_View.viewappointments, name='View_Appointments'),
+
+
+
+ path('Nurse_page',views.nurseHome,name='Nurse_page'),
+ path('User_page',views.userHome,name='User_page'),
 ]
