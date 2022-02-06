@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href=" {% static 'assets_adminHome/img/apple-icon.png' %} ">
   <link rel="icon" type="image/png" href=" {% static 'assets_adminHome/img/favicon.png' %} ">
   <title>
-    Vacccine
+    Admin Home
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -61,7 +61,7 @@
         <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
         <i class="material-icons opacity-10">table_view</i>
-          <i class="bi bi-menu-button-wide"></i><span>Nurse Management</span>
+          <i class="bi bi-menu-button-wide"></i><span>Nurse Details</span>
             <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -80,7 +80,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav1" data-bs-toggle="collapse" href="#">
         <i class="material-icons opacity-10">table_view</i>
-          <i class="bi bi-menu-button-wide"></i><span>User Management</span>
+          <i class="bi bi-menu-button-wide"></i><span>User Details</span>
             <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -98,7 +98,7 @@
         <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav2" data-bs-toggle="collapse" href="#">
         <i class="material-icons opacity-10">table_view</i>
-          <i class="bi bi-menu-button-wide"></i><span>Report Card Management</span>
+          <i class="bi bi-menu-button-wide"></i><span>Report Card Details</span>
             <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -117,12 +117,12 @@
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav3" data-bs-toggle="collapse" href="#">
         <i class="material-icons opacity-10">table_view</i>
-          <i class="bi bi-menu-button-wide"></i><span>View and Reply Complaints</span>
+          <i class="bi bi-menu-button-wide"></i><span>Complaints Details</span>
             <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-            <a href="components-alerts.html">
+            <a href=" {% url 'View_Complaints' %} " >
               <i class="bi bi-circle"></i><span>View Complaints</span>
             </a>
           </li>
@@ -136,7 +136,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav4" data-bs-toggle="collapse" href="#">
         <i class="material-icons opacity-10">table_view</i>
-          <i class="bi bi-menu-button-wide"></i><span>Add Hospitals</span>
+          <i class="bi bi-menu-button-wide"></i><span>Hospital Details</span>
             <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav4" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -158,7 +158,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav5" data-bs-toggle="collapse" href="#">
         <i class="material-icons opacity-10">table_view</i>
-          <i class="bi bi-menu-button-wide"></i><span>Approving and adding Vaccines</span>
+          <i class="bi bi-menu-button-wide"></i><span>Vaccine Details</span>
             <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav5" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -177,39 +177,39 @@
              <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav6" data-bs-toggle="collapse" href="#">
         <i class="material-icons opacity-10">table_view</i>
-          <i class="bi bi-menu-button-wide"></i><span>Approving Appointment</span>
+          <i class="bi bi-menu-button-wide"></i><span>Appointment Details</span>
             <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav6" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
             <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Approving</span>
+              <i class="bi bi-circle"></i><span>Approving Appointments</span>
             </a>
           </li>
           <li>
             <a href=" {% url 'View_Appointments' %} " >
-              <i class="bi bi-circle"></i><span>View Appointments</span>
+              <i class="bi bi-circle"></i><span>Status of Appointments</span>
             </a>
           </li>
         </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav7" data-bs-toggle="collapse" href="#">
-        <i class="material-icons opacity-10">table_view</i>
-          <i class="bi bi-menu-button-wide"></i><span>Checking Status of Appointment</span>
-            <i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav7" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>View Appointments</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Vaccine Status</span>
-            </a>
-          </li>
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" data-bs-target="#components-nav7" data-bs-toggle="collapse" href="#">-->
+<!--        <i class="material-icons opacity-10">table_view</i>-->
+<!--          <i class="bi bi-menu-button-wide"></i><span>Checking Status of Appointment</span>-->
+<!--            <i class="bi bi-chevron-down ms-auto"></i>-->
+<!--        </a>-->
+<!--        <ul id="components-nav7" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
+<!--        <li>-->
+<!--            <a href="components-alerts.html">-->
+<!--              <i class="bi bi-circle"></i><span>View Appointments</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="components-alerts.html">-->
+<!--              <i class="bi bi-circle"></i><span>Vaccine Status</span>-->
+<!--            </a>-->
+<!--          </li>-->
         </ul>
       </li>
       </ul>
@@ -340,24 +340,6 @@
     <div class="container-fluid py-4">
       <div class="row">
         {% block content %}
-<!--        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">-->
-<!--          <div class="card">-->
-<!--            <div class="card-header p-3 pt-2">-->
-<!--              <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">-->
-<!--                <i class="material-icons opacity-10">weekend</i>-->
-<!--              </div>-->
-<!--              <div class="text-end pt-1">-->
-<!--                <p class="text-sm mb-0 text-capitalize">New Vaccine</p>-->
-<!--                <h4 class="mb-0">2</h4>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <hr class="dark horizontal my-0">-->
-<!--            <div class="card-footer p-3">-->
-<!--              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">5 </span>This Month</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
 
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <div class="card">

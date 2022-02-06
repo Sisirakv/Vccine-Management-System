@@ -57,3 +57,7 @@ def viewcard (request):
 def viewappointments (request):
     data=Appointment.objects.all()
     return render (request,'AdminView_temp/viewAppointments.html',{'data':data})
+
+def viewcomplaints (request):
+    data=Complaint.objects.all()
+    return render (request,'AdminView_temp/viewComplaints.html',{'data':data})

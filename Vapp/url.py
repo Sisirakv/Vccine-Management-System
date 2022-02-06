@@ -19,7 +19,7 @@ urlpatterns = [
  path('Add_ReportCard',Admin_View.Add_Reportcard,name="Add_ReportCard"),
  path('View_ReportCard',Admin_View.viewcard, name='View_ReportCard'),
  path('View_Appointments', Admin_View.viewappointments, name='View_Appointments'),
-
+ path('View_Complaints', Admin_View.viewcomplaints, name='View_Complaints'),
 
 
  path('Nurse_page',views.nurseHome,name='Nurse_page'),

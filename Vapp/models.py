@@ -57,15 +57,11 @@ class Reportcard(models.Model):
         return self.Patient,self.vaccine
 
 
-class adding_hospitals(models.Model):
-    Hospital_name=models.CharField(max_length=20)
-    H_details=models.TextField()
-
 class Schedule(models.Model):
     hospital=models.CharField(max_length=20)
     date=models.DateField()
-    start_time=models.CharField(max_length=20)
-    end_time=models.CharField(max_length=20)
+    start_time=models.TimeField(max_length=20)
+    end_time=models.TimeField(max_length=20)
 
 class Appointment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -74,4 +70,9 @@ class Appointment(models.Model):
     vaccine_name=models.ForeignKey(Vaccine, on_delete=models.CASCADE)
     vaccinated=models.CharField(max_length=20)
 
-
+class Complaint(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    subject = models.CharField(max_length=50)
+    complaint = models.CharField(max_length=50)
+    date = models.DateField()
+    reply = models.CharField(max_length=50)
