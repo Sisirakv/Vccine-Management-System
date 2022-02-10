@@ -1,0 +1,55 @@
+{% extends 'User_Home.html' %}
+{% block content %}
+
+
+<section class="section">
+  <div class="row">
+    <div class="col-lg-9">
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">General Form Elements</h3><br><br>
+
+              <!-- General Form Elements -->
+            <form method="post">{% csrf_token %}
+                <h2 class="card-inside-title"></h2>
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="row mb-5">
+                                <label for="inputText" class="col-sm-2 col-form-label">subject</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="subject" class="form-control">
+                                </div>
+                            </div><br><br>
+                                 <div class="row mb-5">
+                                <label for="inputText" class="col-sm-2 col-form-label">date</label>
+                                <div class="col-sm-10">
+                                    <input type="date" name="date" class="form-control">
+                                </div>
+                            </div><br><br>
+
+                            <div class="row mb-3">
+                                 <label for="inputPassword" class="col-sm-2 col-form-label">complaint</label>
+                                 <div class="col-sm-10">
+                                    <textarea name="complaint" class="form-control" style="height: 100px"></textarea>
+                                 </div>
+                            </div><br><br>
+
+
+                            <div class="row mb-3">
+
+                                <div class="col-sm-10">
+                                     <button type="submit" class="btn btn-primary">Submit Form</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </form><!-- End General Form Elements -->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

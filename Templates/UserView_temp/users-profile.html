@@ -1,0 +1,115 @@
+{% extends 'User_Home.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<!--<div class="col-xs-12 col-sm-3">-->
+                    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                        <div class="profile-body">
+                            <div class="image-area">
+                                <img src="{% static 'assets_nurse_Home/images/admin.jpg' %} " alt="AdminBSB - Profile Image" />
+                            </div>
+                            <div class="content-area">
+                                <h3>Marc K. Hammond</h3>
+<!--                                <p>Web Software Developer</p>-->
+<!--                                <p>Administrator</p>-->
+                            </div>
+                        </div>
+<!--                        <div class="profile-footer">-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <span>Followers</span>-->
+<!--                                    <span>1.234</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>Following</span>-->
+<!--                                    <span>1.201</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>Friends</span>-->
+<!--                                    <span>14.252</span>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+                            <button class="btn btn-primary btn-lg waves-effect btn-block">Update</button>
+<!--                        </div>-->
+                    </div>
+
+                    <div class="card card-about-me">
+                        <div class="header">
+                            <h2>My Profile</h2>
+                        </div>
+
+                        <div class="body">
+                          {% for u in profile %}
+                            <ul>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">library_books</i>
+                                        Name
+                                    </div>
+                                    <div class="content">
+                                      {{u.Name}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">notes</i>
+                                        Address
+                                    </div>
+                                    <div class="content">
+                                        {{u.Address}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">library_books</i>
+                                      Contact Number
+                                    </div>
+                                    <div class="content">
+                                        {{u.contact_no}}
+                                    </div>
+                                </li>
+                                 <li>
+                                    <div class="title">
+                                        <i class="material-icons">library_books</i>
+                                      Child Name
+                                    </div>
+                                    <div class="content">
+                                        {{u.Child_name}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">library_books</i>
+                                      Child Age
+                                    </div>
+                                    <div class="content">
+                                        {{u.child_age}}
+                                    </div>
+                                </li>
+                                 <li>
+                                    <div class="title">
+                                        <i class="material-icons">library_books</i>
+                                      Child Gender
+                                    </div>
+                                    <div class="content">
+                                        {{u.child_gender}}
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="title">
+                                        <i class="material-icons">library_books</i>
+                                      Recent vaccination
+                                    </div>
+                                    <div class="content">
+                                        {{u.Recent_vaccination}}
+                                    </div>
+                                </li>
+                            </ul>
+                          {% endfor %}
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

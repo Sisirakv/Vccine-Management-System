@@ -1,7 +1,7 @@
 
 from django.urls import path
 
-from Vapp import views, Admin_View
+from Vapp import views, Admin_View, Nurse_View, User_View
 from Vapp.Admin_View import *
 
 urlpatterns = [
@@ -23,5 +23,14 @@ urlpatterns = [
 
 
  path('Nurse_page',views.nurseHome,name='Nurse_page'),
+ path('User_Details',Nurse_View.userdetails,name='User_Details'),
+ path('Hospital_Details', Nurse_View.hospitaldetails, name='Hospital_Details'),
+ path('Add_appointments', Nurse_View.Add_Schedule, name='Add_appointments'),
+ path('Add_complaints',Nurse_View.Add_Complaints,name='Add_complaints'),
+ path('View_Appointments', Nurse_View.viewappointments, name='View_Appointments'),
+
+
  path('User_page',views.userHome,name='User_page'),
+ path('User_profile', User_View.user_profile, name='User_profile'),
+ path('User_Complaints',User_View.Add_Complaints,name='User_Complaints'),
 ]

@@ -314,14 +314,14 @@
                         </a>
                           <ul class="ml-menu">
                             <li>
-                                <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Cards</span>
+                                <a href=" {% url 'User_profile' %} " >
+                                    <span>Profile</span>
                                 </a>
 
-                            <li>
-                                <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Infobox</span>
-                                </a>
+<!--                            <li>-->
+<!--                                <a href="pages/widgets/infobox/infobox-1.html">-->
+<!--                                    <span>Infobox</span>-->
+<!--                                </a>-->
                               </ul>
                             </li>
                     </li>
@@ -350,13 +350,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Cards</span>
+                                <a href=" {% url 'User_Complaints' %} " >
+                                    <span>Register Complaint</span>
                                 </a>
 
                             <li>
                                 <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Infobox</span>
+                                    <span>View Reply</span>
                                 </a>
                         </ul>
                     </li>
@@ -368,13 +368,13 @@
                           <ul class="ml-menu">
                             <li>
                                 <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Cards</span>
+                                    <span>View Report Card</span>
                                 </a>
 
-                            <li>
-                                <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Infobox</span>
-                                </a>
+<!--                            <li>-->
+<!--                                <a href="pages/widgets/infobox/infobox-1.html">-->
+<!--                                    <span>Infobox</span>-->
+<!--                                </a>-->
                         </ul>
                     </li>
                 </ul>
@@ -390,8 +390,9 @@
             </div>
 
             <!-- Widgets -->
-            <div class="row clearfix">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<!--            <div class="row clearfix">-->
+<!--                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+            {% block content %}
                     <div class="info-box bg-pink hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">playlist_add_check</i>
@@ -533,6 +534,7 @@
                         </div>
                     </div>
                 </div>
+                {% endblock %}
             </div>
         </div>
     </section>

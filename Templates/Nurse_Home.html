@@ -314,13 +314,13 @@
                         </a>
                           <ul class="ml-menu">
                             <li>
-                                <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Cards</span>
+                               <a href=" {% url 'Nurse_Details' %} " >
+                                    <span>View Details</span>
                                 </a>
 
                             <li>
                                 <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Infobox</span>
+                                    <span>Update Details</span>
                                 </a>
                               </ul>
                             </li>
@@ -332,13 +332,13 @@
                         </a>
                           <ul class="ml-menu">
                             <li>
-                                <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Cards</span>
+                                <a href=" {% url 'Add_appointments' %} " >
+                                    <span>Add Schedules</span>
                                 </a>
 
                             <li>
-                                <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Infobox</span>
+                                <a href=" {% url 'View_Appointments' %} " >
+                                    <span>View Appointments</span>
                                 </a>
                               </ul>
                             </li>
@@ -367,13 +367,13 @@
                         </a>
                           <ul class="ml-menu">
                             <li>
-                                <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Cards</span>
+                                <a href=" {% url 'Add_complaints' %} " >
+                                    <span>Add Complaints</span>
                                 </a>
 
                             <li>
                                 <a href="pages/widgets/infobox/infobox-1.html">
-                                    <span>Infobox</span>
+                                    <span>View Replay</span>
                                 </a>
                         </ul>
                     </li>
@@ -390,8 +390,9 @@
             </div>
 
             <!-- Widgets -->
-            <div class="row clearfix">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<!--            <div class="row clearfix">-->
+<!--                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+                    {% block content %}
                     <div class="info-box bg-pink hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">playlist_add_check</i>
@@ -533,6 +534,7 @@
                         </div>
                     </div>
                 </div>
+                {% endblock %}
             </div>
         </div>
     </section>

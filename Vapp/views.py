@@ -37,20 +37,8 @@ def login_views(request):
     return render(request, 'login.html')
 
 
-# def N_form(request):
-#     return render(request, 'indexNurseform.html')
-#
-#
-# def U_form(request):
-#     return render(request, 'indexUserform.html')
-#
-#
-# def U_exist(request):
-#     return render(request, 'indexloginUser.html')
-#
-#
 def nurseHome(request):
-    return render(request, 'Nurse_Home.html')
+    return render(request, 'Nurse.html')
 
 def userHome(request):
     return render(request, 'User_Home.html')

@@ -11,29 +11,46 @@ class LoginRegister(UserCreationForm):
 
     class Meta:
         model = Login
-        fields = ('username','password1','password2')
+        fields = ('username', 'password1', 'password2')
+
 
 class NurseRegistration(forms.ModelForm):
     class Meta:
-        model=nurse
-        fields=('name','address','contact_no','Email','Hospital_name')
+        model = nurse
+        fields = ('name', 'address', 'contact_no', 'Email', 'Hospital_name')
+
 
 class UserRegistration(forms.ModelForm):
     class Meta:
-        model=User
-        fields=('Name','Address','contact_no','Child_name','child_age','child_gender','Recent_vaccination')
+        model = User
+        fields = ('Name', 'Address', 'contact_no', 'Child_name', 'child_age', 'child_gender', 'Recent_vaccination')
+
 
 class hospitalform(forms.ModelForm):
     class Meta:
-        model=Hospital
-        fields=('name','place','contact_no','Email')
+        model = Hospital
+        fields = ('name', 'place', 'contact_no', 'Email')
+
 
 class vaccineform(forms.ModelForm):
     class Meta:
-        model=Vaccine
-        fields=('vaccine_name','vaccine_type','Description','Approval_status')
+        model = Vaccine
+        fields = ('vaccine_name', 'vaccine_type', 'Description', 'Approval_status')
+
 
 class reportcardform(forms.ModelForm):
     class Meta:
-        model=Reportcard
-        fields=('Patient','vaccine')
+        model = Reportcard
+        fields = ('Patient', 'vaccine')
+
+
+class scheduleform(forms.ModelForm):
+    class Meta:
+        model = Schedule
+        fields = ('hospital', 'date', 'start_time', 'end_time')
+
+
+class complaintform(forms.ModelForm):
+    class Meta:
+        model = Complaint_Details
+        fields = ('subject', 'complaint', 'date')
