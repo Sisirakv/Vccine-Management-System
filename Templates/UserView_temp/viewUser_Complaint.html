@@ -37,6 +37,7 @@
 						      <th>complaint</th>
 						      <th>date</th>
 							  <th>reply</th>
+								<th>Update</th>
 								<th>Delete</th>
 
 						    </tr>
@@ -50,7 +51,9 @@
 						      <td>{{i.complaint}}</td>
 						      <td>{{i.date}}</td>
 						      <td>{{i.reply}}</td>
-							  <td><a href="{% url 'Delete_Complaint' i.id %}">Delete</a></td>
+							  <td><a href="{% url 'Update_Complaint_User' i.id %}"><button class="btn btn-success">Update</button></a></td>
+							  <td><a href="{% url 'Delete_Complaint_User' i.id %}"><button class="btn btn-danger">Delete</button></a></td>
+
 
 						    </tr>
 

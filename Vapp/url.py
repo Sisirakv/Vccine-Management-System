@@ -47,6 +47,7 @@ urlpatterns = [
  path('User_Complaints',User_View.Add_Complaints,name='User_Complaints'),
  path('Fix_Schedule', User_View.fixschedules, name='Fix_Schedule'),
  path('Your_Complaints', User_View.compaintview, name='Your_Complaints'),
- path('Delete_Complaint/<int:id>/', User_View.complaintDelete_User, name='Delete_Complaint'),
+ path('Delete_Complaint_User/<int:id>/', User_View.complaintDelete_User, name='Delete_Complaint_User'),
+ path('Update_Complaint_User/<int:id>/', User_View.complaintUpdate_user, name='Update_Complaint_User'),
 
 ]

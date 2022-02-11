@@ -2,20 +2,22 @@
 {% block content %}
 {% load crispy_forms_tags %}
 {% load crispy_forms_filters %}
- <div class="row clearfix">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="card">
-            <div class="header">
-                <h2>Add Schedules</h2>
+ <section class="section">
+  <div class="row">
+    <div class="col-lg-9">
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Add Schedules</h3><br><br>
                     <form method="post"> {% csrf_token %}
 
                         <div class="form-row-last">
                             {{form.hospital|as_crispy_field}}
-                        </div>
+                        </div><br>
                 <!--        <div class="form-group">-->
                 <!--            <div class="form-line">-->
                             <label>Date</label>
-                                <input name="date" type="date" class="datepicker form-control" placeholder="Please choose a date...">
+                                <input name="date" type="date" class="datepicker form-control" placeholder="Please choose a date..."><br>
                 <!--            </div>-->
                 <!--        </div>-->
 
@@ -23,7 +25,7 @@
                 <!--            <div class="form-group">-->
                 <!--                <div class="form-line">-->
                             <label>Start Time</label>
-                                    <input name="start_time" type="time" class="timepicker form-control" placeholder="Please choose a time...">
+                                    <input name="start_time" type="time" class="timepicker form-control" placeholder="Please choose a time..."><br>
                 <!--                </div>-->
                 <!--            </div>-->
                 <!--        </div>-->
@@ -31,11 +33,11 @@
                 <!--            <div class="form-group">-->
                 <!--                <div class="form-line">-->
                         <label>End Time</label>
-                                    <input name="end_time" type="time" class="timepicker form-control" placeholder="Please choose a time...">
+                                    <input name="end_time" type="time" class="timepicker form-control" placeholder="Please choose a time..."><br>
                 <!--                </div>-->
                 <!--            </div>-->
 
-                            <br>   <input type="submit" name="submit" value="submit" class="btn btn-primary"><br><br>
+                            <br><center>   <input type="submit" name="submit" value="submit" class="btn btn-primary"></center><br><br>
                 <!--            </div>-->
                     </form>
             </div>

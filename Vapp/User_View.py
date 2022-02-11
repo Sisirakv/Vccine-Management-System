@@ -41,3 +41,19 @@ def complaintDelete_User(request, id=None):
     data = Complaint_Details.objects.get(id=id)
     data.delete()
     return redirect('Your_Complaints')
+
+
+def complaintUpdate_user(request, id=None):
+    updt_data = Complaint_Details.objects.get(id=id)
+    if request.method == 'POST':
+
+        subject = request.POST['subject']
+        complaint = request.POST['complaint']
+        date = request.POST['date']
+
+        updt_data.subject = subject
+        updt_data.complaint = complaint
+        updt_data.date = date
+        updt_data.save()
+        return redirect('Complaint_Details')
+    return render(request, 'NurseView_temp/Add_Complaint.html', {'updt_data': updt_data})
