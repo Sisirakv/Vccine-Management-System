@@ -20,17 +20,33 @@ urlpatterns = [
  path('View_ReportCard',Admin_View.viewcard, name='View_ReportCard'),
  path('View_Appointments', Admin_View.viewappointments, name='View_Appointments'),
  path('View_Complaints', Admin_View.viewcomplaints, name='View_Complaints'),
-
+ path('Delete_ReportCard/<int:id>/', Admin_View.reportcardDelete, name='Delete_ReportCard'),
+ path('Update_ReportCard/<int:id>/', Admin_View.reportcardUpdate, name='Update_ReportCard'),
+ path('Delete_Hospital/<int:id>/', Admin_View.hospitalDelete, name='Delete_Hospital'),
+ path('Update_Hospital/<int:id>/', Admin_View.hospitalUpdate, name='Update_Hospital'),
+ path('Delete_Vaccine/<int:id>/', Admin_View.vaccineDelete, name='Delete_Vaccine'),
+ path('Update_Vaccine/<int:id>/', Admin_View.vaccineUpdate, name='Update_Vaccine'),
 
  path('Nurse_page',views.nurseHome,name='Nurse_page'),
  path('User_Details',Nurse_View.userdetails,name='User_Details'),
  path('Hospital_Details', Nurse_View.hospitaldetails, name='Hospital_Details'),
  path('Add_appointments', Nurse_View.Add_Schedule, name='Add_appointments'),
  path('Add_complaints',Nurse_View.Add_Complaints,name='Add_complaints'),
- path('View_Appointments', Nurse_View.viewappointments, name='View_Appointments'),
+ path('Appointments_Details', Nurse_View.appointmentdetails, name='Appointments_Details'),
+ path('Schedule_Details', Nurse_View.viewschedules, name='Schedule_Details'),
+ path('Vaccine_Details', Nurse_View.vaccinedetails, name='Vaccine_Details'),
+ path('Complaint_Details', Nurse_View.viewcomplaints_nurse, name='Complaint_Details'),
+ path('Delete_Appointments/<int:id>/',Nurse_View.appointmentDelete,name='Delete_Appointments'),
+ path('Update_Appointments/<int:id>/', Nurse_View.scheduleUpdate, name='Update_Appointments'),
+ path('Update_Complaint/<int:id>/', Nurse_View.complaintUpdate, name='Update_Complaint'),
+ path('Delete_Complaint/<int:id>/', Nurse_View.complaintDelete, name='Delete_Complaints'),
 
 
  path('User_page',views.userHome,name='User_page'),
  path('User_profile', User_View.user_profile, name='User_profile'),
  path('User_Complaints',User_View.Add_Complaints,name='User_Complaints'),
+ path('Fix_Schedule', User_View.fixschedules, name='Fix_Schedule'),
+ path('Your_Complaints', User_View.compaintview, name='Your_Complaints'),
+ path('Delete_Complaint/<int:id>/', User_View.complaintDelete_User, name='Delete_Complaint'),
+
 ]

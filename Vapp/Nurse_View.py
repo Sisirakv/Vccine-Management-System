@@ -5,7 +5,7 @@ from Vapp.form import *
 
 
 def userdetails(request):
-    data = nurse.objects.all()
+    data = User.objects.all()
     return render(request, 'NurseView_temp/viewUser_Nurse.html', {'data': data})
 
 def hospitaldetails(request):
@@ -54,10 +54,58 @@ def Add_Schedule(request):
     return render(request, 'NurseView_temp/Add_Appointment.html', {'form': form})
 
 
-def viewappointments(request):
+def appointmentdetails(request):
     data = Appointment_Details.objects.all()
-    return render(request, 'AdminView_temp/viewAppointments.html', {'data': data})
+    return render(request, 'NurseView_temp/viewAppointments_Nurse.html', {'data': data})
 
-def viewvaccine(request):
+def vaccinedetails(request):
     data = Vaccine.objects.all()
-    return render(request, 'AdminView_temp/viewVaccine.html', {'data': data})
+    return render(request, 'NurseView_temp/viewVaccine_Nurse.html', {'data': data})
+
+def viewschedules(request):
+    data = Schedule.objects.all()
+    return render(request, 'NurseView_temp/viewShecdules_Nurse.html', {'data': data})
+
+def viewcomplaints_nurse(request):
+    data = Complaint_Details.objects.all()
+    return render(request, 'NurseView_temp/viewNurse_Complaint.html', {'data': data})
+
+def appointmentDelete(request,id=None):
+    data = Schedule.objects.get(id=id)
+    data.delete()
+    return redirect ('Schedule_Details')
+
+def scheduleUpdate(request, id=None):
+    updt_data = Schedule.objects.get(id=id)
+    if request.method == 'POST':
+        hospital = request.POST['hospital']
+        date = request.POST['date']
+        start_time = request.POST['start_time']
+        end_time = request.POST['end_time']
+        updt_data.hospital = hospital
+        updt_data.date = date
+        updt_data.start_time = start_time
+        updt_data.end_time = end_time
+        updt_data.save()
+        return redirect('Schedule_Details')
+    return render(request, 'NurseView_temp/Add_Appointment.html', {'updt_data': updt_data})
+
+def complaintDelete(request,id=None):
+    data = Complaint_Details.objects.get(id=id)
+    data.delete()
+    return redirect ('Complaint_Details')
+
+def complaintUpdate(request, id=None):
+    updt_data = Complaint_Details.objects.get(id=id)
+    if request.method == 'POST':
+
+        subject = request.POST['subject']
+        complaint = request.POST['complaint']
+        date = request.POST['date']
+
+        updt_data.subject = subject
+        updt_data.complaint = complaint
+        updt_data.date = date
+        updt_data.save()
+        return redirect('Complaint_Details')
+    return render(request, 'NurseView_temp/Add_Complaint.html', {'updt_data': updt_data})

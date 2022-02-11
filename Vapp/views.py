@@ -38,7 +38,7 @@ def login_views(request):
 
 
 def nurseHome(request):
-    return render(request, 'Nurse.html')
+    return render(request, 'Nurse_Home.html')
 
 def userHome(request):
     return render(request, 'User_Home.html')

@@ -35,7 +35,8 @@
 						      <th>vaccine_name</th>
 						      <th>vaccine_type</th>
 						      <th>Description</th>
-						      <th>Approval_status</th>
+								<th>Update</th>
+								<th>Delete</th>
 
 						    </tr>
 						  </thead>
@@ -46,7 +47,8 @@
 						      <td>{{i.vaccine_name}}</td>
 						      <td>{{i.vaccine_type}}</td>
 						      <td>{{i.Description}}</td>
-						      <td>{{i.Approval_status}}</td>
+							  <td><a href="{% url 'Update_Vaccine' i.id %}"><button class="btn btn-success">Update</button></a></td>
+							  <td><a href="{% url 'Delete_Vaccine' i.id %}"><button class="btn btn-danger">Delete</button></a></td>
 
 						    </tr>
 

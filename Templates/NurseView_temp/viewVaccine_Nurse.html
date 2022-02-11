@@ -1,4 +1,4 @@
-{% extends 'Admin_Home.html' %}
+{% extends 'Nurse_Home.html' %}
 {% block content %}
 
 <!doctype html>
@@ -23,7 +23,7 @@
 <div class="card">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Hospital Details</h2>
+					<h2 class="heading-section">Vaccine Details</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -32,12 +32,10 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
-						      <th>name</th>
-						      <th>place</th>
-						      <th>contact_no</th>
-						      <th>Email</th>
-								<th>Update</th>
-								<th>Delete</th>
+						      <th>vaccine_name</th>
+						      <th>vaccine_type</th>
+						      <th>Description</th>
+<!--						      <th>Approval_status</th>-->
 
 						    </tr>
 						  </thead>
@@ -45,13 +43,10 @@
 						  {% for i in data %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
-						      <td>{{i.name}}</td>
-						      <td>{{i.place}}</td>
-						      <td>{{i.contact_no}}</td>
-						      <td>{{i.Email}}</td>
-							  <td><a href="{% url 'Update_Hospital' i.id %}"><button class="btn btn-success">Update</button></a></td>
-							  <td><a href="{% url 'Delete_Hospital' i.id %}"><button class="btn btn-danger">Delete</button></a></td>
-
+						      <td>{{i.vaccine_name}}</td>
+						      <td>{{i.vaccine_type}}</td>
+						      <td>{{i.Description}}</td>
+<!--						      <td>{{i.Approval_status}}</td>-->
 
 						    </tr>
 

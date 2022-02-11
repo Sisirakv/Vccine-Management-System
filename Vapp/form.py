@@ -35,7 +35,7 @@ class hospitalform(forms.ModelForm):
 class vaccineform(forms.ModelForm):
     class Meta:
         model = Vaccine
-        fields = ('vaccine_name', 'vaccine_type', 'Description', 'Approval_status')
+        fields = ('vaccine_name', 'vaccine_type', 'Description',)
 
 
 class reportcardform(forms.ModelForm):
@@ -53,4 +53,4 @@ class scheduleform(forms.ModelForm):
 class complaintform(forms.ModelForm):
     class Meta:
         model = Complaint_Details
-        fields = ('subject', 'complaint', 'date')
+        fields = ('user','subject', 'complaint', 'date')

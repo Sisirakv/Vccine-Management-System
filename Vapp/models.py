@@ -47,7 +47,7 @@ class Vaccine(models.Model):
     vaccine_name = models.CharField(max_length=50)
     vaccine_type = models.CharField(max_length=50)
     Description = models.CharField(max_length=50)
-    Approval_status = models.CharField(max_length=20)
+
 
     def __str__(self):
         return self.vaccine_name
@@ -77,7 +77,7 @@ class Appointment_Details(models.Model):
 
 class Complaint_Details(models.Model):
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(Login, on_delete=models.CASCADE,null=True)
     subject = models.CharField(max_length=50)
     complaint = models.CharField(max_length=50)
     date = models.DateField()
