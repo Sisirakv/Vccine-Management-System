@@ -23,7 +23,7 @@
 <div class="card">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section"Your Complaints</h2>
+					<h2 class="heading-section"Your Complaints></h2>
 				</div>
 			</div>
 			<div class="row">
@@ -50,7 +50,13 @@
 						      <td>{{i.subject}}</td>
 						      <td>{{i.complaint}}</td>
 						      <td>{{i.date}}</td>
-						      <td>{{i.reply}}</td>
+						      <td>
+								  {% if i.reply == None %}
+								  <a href="{% url 'Reply' i.id %} ">Reply Now</a>
+								  {% else %}
+								  {{i.reply}}
+								  {% endif %}
+							  </td>
 						      <td><a href="{% url 'Update_Complaint' i.id %}"><button class="btn btn-success">Update</button></a></td>
 							  <td><a href="{% url 'Delete_Complaint' i.id %}"><button class="btn btn-danger">Delete</button></a></td>
 

@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, logout
 from django.shortcuts import render, redirect
 from Vapp.form import *
 # Create your views here.
@@ -16,6 +16,11 @@ def Home(request):
 
 def login(request):
     return render(request, 'login.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 
 def login_views(request):

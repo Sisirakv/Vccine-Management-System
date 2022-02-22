@@ -23,36 +23,41 @@
 <div class="card">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Vaccine Schedule</h2>
+					<h1 class="heading-section" style="color:DeepPink">UR Vaccine</h1><br>
+					<h2 class="heading-section">Report Card</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="table-wrap">
 						<table class="table">
-						  <thead class="thead-dark">
-						    <tr>
-						      <th>hospital</th>
-						      <th>date</th>
-						      <th>start_time</th>
-						      <th>end_time</th>
-							  <th>Take Appointments</th>
-
-						    </tr>
-						  </thead>
-						  <tbody>
+						 <tbody>
 						  {% for i in data %}
-						    <tr class="alert" role="alert">
-<!--							<th scope="row">001</th>-->
-						      <td>{{i.hospital}}</td>
-						      <td>{{i.date}}</td>
-						      <td>{{i.start_time}}</td>
-						      <td>{{i.end_time}}</td>
-								<td>
-									<a href=" {% url 'Take_Appointment' i.id %} " >
-									<button type="button" class="btn btn-primary">Take Appointment</button>
-								</td>
-						    </tr>
+						  <tr  class="tr-dark">
+							  <th>Child Name</th><td>{{i.Patient.Child_name}}</td>
+						  </tr>
+						  <tr  class="tr-dark">
+							  <th>Age</th>
+							  <td>{{i.Patient.child_age}}</td>
+						  </tr>
+						  <tr  class="tr-dark">
+							  <th>Gender</th>
+							  <td>{{i.Patient.child_gender}}</td>
+						  </tr>
+						  <h3>Child is Successfully Vaccinated</h3>
+						  <tr  class="tr-dark">
+							  <th>Vaccine Name</th>
+							  <td>{{i.vaccine.vaccine_name}}</td>
+						  </tr>
+						  <tr  class="tr-dark">
+							  <th>Vaccine Type</th>
+							  <td>{{i.vaccine.vaccine_type}}</td>
+						  </tr>
+						  <tr  class="tr-dark">
+							  <th>Description</th>
+							  <td>{{i.vaccine.Description}}</td>
+						  </tr>
+							<tr><center><td><a href="{% url 'Report' %}"><button class="btn btn-primary" onclick="window.print()">Download</button></a></td></center></tr>
 
 						  </tbody>
 							{% endfor %}

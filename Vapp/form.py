@@ -1,5 +1,9 @@
+import re
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
 
 from Vapp.models import *
 
@@ -14,10 +18,26 @@ class LoginRegister(UserCreationForm):
         fields = ('username', 'password1', 'password2')
 
 
+def phone_number_validation(value):
+    if not re.compile(r'[0-9]\d{9}$').match(value):
+        raise ValidationError('This is Not Valid Phone Number')
+
+
 class NurseRegistration(forms.ModelForm):
+    contact_no = forms.CharField(validators=[phone_number_validation])
+    Email = forms.CharField(validators=[
+        RegexValidator(regex='^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$', message='Please Enter a valid Email')])
+
     class Meta:
         model = nurse
         fields = ('name', 'address', 'contact_no', 'Email', 'Hospital_name')
+
+    def clean_email(self):
+        Email = self.cleaned_data['Email']
+        email_qs = nurse.objects.filter(Email=Email)
+        if email_qs.exists():
+            raise forms.ValidationError('This email already registered')
+        return Email
 
 
 class UserRegistration(forms.ModelForm):
@@ -53,4 +73,10 @@ class scheduleform(forms.ModelForm):
 class complaintform(forms.ModelForm):
     class Meta:
         model = Complaint_Details
-        fields = ('user','subject', 'complaint', 'date')
+        fields = ('user', 'subject', 'complaint', 'date')
+
+
+class replyform(forms.ModelForm):
+    class Meta:
+        model = Complaint_Details
+        fields = ('reply',)

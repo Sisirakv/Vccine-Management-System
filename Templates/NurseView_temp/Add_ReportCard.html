@@ -1,6 +1,7 @@
-{% extends 'Admin_Home.html' %}
+{% extends 'Nurse_Home.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 <div class="card">
     <form method="post"> {% csrf_token %}
         <h5>Add ReportCard</h5>

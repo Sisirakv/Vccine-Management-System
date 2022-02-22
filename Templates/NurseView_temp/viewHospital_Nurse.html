@@ -21,6 +21,16 @@
 	<body>
 
 <div class="card">
+
+	<div class="row">
+		<div class="col-md-12">
+			<form method="get" class="form-inline" style="float:right;">
+				<div class="md-form my-0">
+					{{hospitalFilter.form}}
+					<button class="btn btn-primary mr-2" type="submit">Search</button>
+				</div>
+			</form>
+			<br><br><br>
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
 					<h2 class="heading-section">Hospital Details</h2>
@@ -57,6 +67,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 	</section>
 
 	<script src=" {% static 'assets_tab/js/jquery.min.js' %} "></script>

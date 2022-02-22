@@ -1,0 +1,33 @@
+{% extends 'User_Home.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Take Appointments</title>
+</head>
+<body>
+  <div class="card">
+    <form method="post"> {% csrf_token %}
+            <div class="form-group">
+                <label>Hospital</label>
+                <input required class="form-group" readonly value="{{schedule.hospital}}">
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input required class="form-group" readonly value="{{schedule.date}}">
+            </div>
+            <div class="form-group">
+                <label>Start Time</label>
+                <input required class="form-group" readonly value="{{schedule.start_time}}">
+            </div>
+            <div class="form-group">
+                <label>End Time</label>
+                <input required class="form-group" readonly value="{{schedule.end_time}}">
+            </div>
+            <button type="button" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

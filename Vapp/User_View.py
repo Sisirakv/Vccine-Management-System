@@ -1,6 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate
-from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from Vapp.form import *
 
@@ -13,19 +12,35 @@ def Add_Complaints(request):
             form.save()
             messages.info(request, 'Successfully added')
             return redirect('User_page')
-    return render(request, 'UserView_temp/complaint.html', {'form': form})
+        else:
+            form = complaintform(request.POST)
+    return render(request, 'UserView_temp/Complaint.html', {'form': form})
 
 
-@login_required(login_url='login_view')
 def user_profile(request):
-    u = request.user
-    profile = User.objects.filter(user=u)
-    return render(request, 'UserView_temp/users-profile.html', {'profile': profile})
+    # data = User.objects.filter(user=request.user)
+    # if request.user.is_active:
+    data = User.objects.filter()
+    return render(request, 'UserView_temp/Profile.html', {'data': data})
 
 
 # def user_profile(request):
 #     data = Hospital.objects.all()
 #     return render(request, 'UserView_temp/users-profile.html', {'data': data})
+
+# @login_required(login_url='login')
+# def profile_update(request,user_id):
+#     profile = User.objects.get(user_id=user_id)
+#     if request.method == 'POST':
+#         form = UserProfileUpdate(request.POST or None, instance=profile)
+#         if form.is_valid():
+#             form.save()
+#             messages.info(request,'Profile Updated Sucessfully')
+#             return redirect('user_profile')
+#     else:
+#         form = UserProfileUpdate(instance=profile)
+#
+#     return render(request,)
 
 def fixschedules(request):
     data = Schedule.objects.all()
@@ -44,16 +59,35 @@ def complaintDelete_User(request, id=None):
 
 
 def complaintUpdate_user(request, id=None):
-    updt_data = Complaint_Details.objects.get(id=id)
+    n = Complaint_Details.objects.get(id=id)
     if request.method == 'POST':
-
-        subject = request.POST['subject']
-        complaint = request.POST['complaint']
-        date = request.POST['date']
-
-        updt_data.subject = subject
-        updt_data.complaint = complaint
-        updt_data.date = date
-        updt_data.save()
+        form = complaintform(request.POST or None, instance=n)
+        if form.is_valid():
+            form.save()
         return redirect('Complaint_Details')
-    return render(request, 'NurseView_temp/Add_Complaint.html', {'updt_data': updt_data})
+    else:
+        form = complaintform(request.POST or None, instance=n)
+    return render(request, 'UserView_temp/Complaint.html', {'form': form})
+
+
+def take_appointment(request):
+    schedule = Schedule.objects.get(schedule=request.schedule)
+    u = User.objects.get(user=request.user)
+    appointment = Appointment_Details.objects.filter(user=u, schedule=schedule)
+    if appointment.exist():
+        messages.info(request, "You have already requested to this Schedule")
+        return redirect('Schedule_Details')
+    else:
+        if request.method == 'POST':
+            obj = appointment()
+            obj.user = u
+            obj.schedule = schedule
+            obj.save()
+            messages.info(request, "Appointment Booked Successfully")
+            return redirect('Appointments_Details')
+    return render(request, 'UserView_temp/TakeAppointment.html', {'schedule': schedule})
+
+
+def report(request):
+    data = Reportcard.objects.all()
+    return render(request, 'UserView_temp/ReportCard.html', {'data': data})

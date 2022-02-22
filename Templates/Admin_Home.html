@@ -95,25 +95,25 @@
             </a>
           </li>
         </ul>
-        <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav2" data-bs-toggle="collapse" href="#">
-        <i class="material-icons opacity-10">table_view</i>
-          <i class="bi bi-menu-button-wide"></i><span>Report Card Details</span>
-            <i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-             <a href=" {% url 'Add_ReportCard' %} " >
-              <i class="bi bi-circle"></i><span>Add Card</span>
-            </a>
-          </li>
-          <li>
-           <a href=" {% url 'View_ReportCard' %} " >
-              <i class="bi bi-circle"></i><span>View Card</span>
-            </a>
-          </li>
-        </ul>
-      </li>
+<!--        <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" data-bs-target="#components-nav2" data-bs-toggle="collapse" href="#">-->
+<!--        <i class="material-icons opacity-10">table_view</i>-->
+<!--          <i class="bi bi-menu-button-wide"></i><span>Report Card Details</span>-->
+<!--            <i class="bi bi-chevron-down ms-auto"></i>-->
+<!--        </a>-->
+<!--        <ul id="components-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
+<!--        <li>-->
+<!--             <a href=" {% url 'Add_ReportCard' %} " >-->
+<!--              <i class="bi bi-circle"></i><span>Add Card</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--           <a href=" {% url 'View_ReportCard' %} " >-->
+<!--              <i class="bi bi-circle"></i><span>View Card</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>-->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav3" data-bs-toggle="collapse" href="#">
         <i class="material-icons opacity-10">table_view</i>
@@ -127,7 +127,7 @@
             </a>
           </li>
           <li>
-            <a href="components-alerts.html">
+            <a href=" {% url 'Reply' %} " >
               <i class="bi bi-circle"></i><span>Replay complaints</span>
             </a>
           </li>
@@ -182,7 +182,7 @@
         </a>
         <ul id="components-nav6" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-            <a href="components-alerts.html">
+            <a href=" {% url 'Approving' %} " >
               <i class="bi bi-circle"></i><span>Approving Appointments</span>
             </a>
           </li>
@@ -238,11 +238,19 @@
               <input type="text" class="form-control">
             </div>
           </div>
+<!--        <div class="row">-->
+<!--          <div class="col">-->
+<!--            <div class="card card-body">-->
+<!--              <form method="get">-->
+<!--                <input type="text" class="form-control"><button class="btn btn-primary" type="submit">Search</button>-->
+<!--              </form>-->
+<!--            </div>-->
+<!--          </div>-->
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+              <a href="{% url 'logout_view' %}" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
+                <span class="d-sm-inline d-none">Logout</span>
               </a>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">

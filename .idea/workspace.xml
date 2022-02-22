@@ -10,8 +10,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -43,11 +43,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Vapp" />
+      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Templates\NurseView_temp" />
+      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Templates\AdminView_temp" />
+      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Templates\UserView_temp" />
       <recent name="C:\Users\Sisira K V\Desktop\Futura\Vccine-Management-System\Templates\NurseView_temp" />
-      <recent name="C:\Users\Sisira K V\Desktop\Futura\Vccine-Management-System\Templates\UserView_temp" />
-      <recent name="C:\Users\Sisira K V\Desktop\Futura\Vccine-Management-System\Templates" />
-      <recent name="C:\Users\Sisira K V\Desktop\Futura\Vccine-Management-System\static\assets_nurse_Home\images" />
-      <recent name="C:\Users\Sisira K V\Desktop\Futura\Vccine-Management-System\static\assets_nurse_Home\images\image-gallery" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Templates\UserView_temp" />
+      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Templates\NurseView_temp" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -60,5 +64,16 @@
       <updated>1643735336437</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Vapp/Nurse_View.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,4 +1,4 @@
-{% extends 'User_Home.html' %}
+{% extends 'Admin_Home.html' %}
 {% block content %}
 
 <!doctype html>
@@ -23,7 +23,7 @@
 <div class="card">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Vaccine Schedule</h2>
+					<h2 class="heading-section">Appointments</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -32,26 +32,33 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
-						      <th>hospital</th>
-						      <th>date</th>
-						      <th>start_time</th>
-						      <th>end_time</th>
-							  <th>Take Appointments</th>
-
+						      <th>User</th>
+						      <th>Date</th>
+						      <th>Hospital</th>
+						      <th>Start Time</th>
+							  <th>End Time</th>
+							  <th>Status</th>
 						    </tr>
 						  </thead>
 						  <tbody>
 						  {% for i in data %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
-						      <td>{{i.hospital}}</td>
-						      <td>{{i.date}}</td>
-						      <td>{{i.start_time}}</td>
-						      <td>{{i.end_time}}</td>
-								<td>
-									<a href=" {% url 'Take_Appointment' i.id %} " >
-									<button type="button" class="btn btn-primary">Take Appointment</button>
-								</td>
+						      <td>{{i.user}}</td>
+						      <td>{{i.schedule.date}}</td>
+							  <td>{{i.schedule.hospital}}</td>
+						      <td>{{i.schedule.start_time}}</td>
+						      <td>{{i.schedule.end_time}}</td>
+						      <td>
+								  {% if i.status == 0 %}
+								  <button type="button" class="btn btn-warning">Approval Pending</button>
+								  {% elif i.status == 1 %}
+								  <button type="button" class="btn btn-success">Appointment Confirmed</button>
+								  {% else %}
+								  <button type="button" class="btn btn-danger">Rejected</button>
+
+								  {% endif %}
+							  </td>
 						    </tr>
 
 						  </tbody>

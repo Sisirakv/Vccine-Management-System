@@ -4,7 +4,6 @@
 <!doctype html>
 {% load static %}
 
-
 <html lang="en">
   <head>
   	<title>Table 02</title>
@@ -14,7 +13,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+
 	<link rel="stylesheet" href=" {% static 'assets_tab/css/style.css' %} ">
 
 	</head>
@@ -23,41 +22,47 @@
 <div class="card">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Vaccine Schedule</h2>
+					<h1 class="heading-section" style="color:DeepPink">MY PROFILE</h1><br>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<div class="table-wrap">
+<!--					<form method="get" class="form-inline">-->
+					 <div class="table-wrap">
 						<table class="table">
-						  <thead class="thead-dark">
-						    <tr>
-						      <th>hospital</th>
-						      <th>date</th>
-						      <th>start_time</th>
-						      <th>end_time</th>
-							  <th>Take Appointments</th>
+						 	<tbody>
+							  {% for i in data %}
 
-						    </tr>
-						  </thead>
-						  <tbody>
-						  {% for i in data %}
-						    <tr class="alert" role="alert">
-<!--							<th scope="row">001</th>-->
-						      <td>{{i.hospital}}</td>
-						      <td>{{i.date}}</td>
-						      <td>{{i.start_time}}</td>
-						      <td>{{i.end_time}}</td>
-								<td>
-									<a href=" {% url 'Take_Appointment' i.id %} " >
-									<button type="button" class="btn btn-primary">Take Appointment</button>
-								</td>
-						    </tr>
 
-						  </tbody>
-							{% endfor %}
+							  <tr  class="tr-dark">
+								  <th>Child Name</th><td>: {{i.Child_name}}</td>
+							  </tr>
+							  <tr  class="tr-dark">
+								  <th>Age</th>
+								  <td>: {{i.child_age}}</td>
+							  </tr>
+							  <tr  class="tr-dark">
+								  <th>Gender</th>
+								  <td>: {{i.child_gender}}</td>
+							  </tr>
+							<tr  class="tr-dark">
+								  <th>Parent Name</th>
+								  <td>: {{i.Name}}</td>
+							  </tr>
+							<tr  class="tr-dark">
+								  <th>Address</th>
+								  <td>: {{i.Address}}</td>
+							  </tr>
+							<tr  class="tr-dark">
+								  <th>Phone Number</th>
+								  <td>: {{i.contact_no}}</td>
+							  </tr>
+
+							</tbody>
+								{% endfor %}
 						</table>
-					</div>
+					 </div>
+					</form>
 				</div>
 			</div>
 		</div>
