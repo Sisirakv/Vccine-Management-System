@@ -6,7 +6,7 @@ import django_filters
 
 
 class UserFilter(django_filters.FilterSet):
-    name = CharFilter(field_name='name', label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
+    name = CharFilter(field_name='Name', label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
         'placeholder': 'Search Name', 'class': 'form-control'}))
 
     class Meta:
@@ -15,17 +15,17 @@ class UserFilter(django_filters.FilterSet):
 
 
 class NurseFilter(django_filters.FilterSet):
-    name = CharFilter(field_name='name', label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
+    Name = CharFilter(field_name='name', label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
         'placeholder': 'Search Name', 'class': 'form-control'}))
 
     class Meta:
         model = nurse
-        fields = ('name',)
+        fields = ('Name',)
 
 
 class HospitalFilter(django_filters.FilterSet):
     name = CharFilter(field_name='place', label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
-        'placeholder': 'Search Hospital Name', 'class': 'form-control'}))
+        'placeholder': 'Search Place', 'class': 'form-control'}))
 
     class Meta:
         model = Hospital
@@ -33,7 +33,7 @@ class HospitalFilter(django_filters.FilterSet):
 
 
 class VaccineFilter(django_filters.FilterSet):
-    name = CharFilter(field_name='name', label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
+    name = CharFilter(field_name='vaccine_name', label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
         'placeholder': 'Search Vaccine Name', 'class': 'form-control'}))
 
     class Meta:
@@ -47,11 +47,11 @@ class ScheduleFilter(django_filters.FilterSet):
 
     class Meta:
         model = Schedule
-        fields = ('hospital',)
+        fields = ('name',)
 
 
 class PlaceFilter(django_filters.FilterSet):
-    schedule__hospital = CharFilter(label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
+    schedule__hospital = CharFilter(field_name='place',label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
         'placeholder': 'Search Hospital', 'class': 'form-control'}))
 
     class Meta:

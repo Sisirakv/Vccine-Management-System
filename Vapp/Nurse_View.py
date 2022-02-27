@@ -10,6 +10,7 @@ from Vapp.filter import VaccineFilter, ScheduleFilter, UserFilter, HospitalFilte
 #     data = User.objects.all()
 #     return render(request, 'NurseView_temp/viewUser_Nurse.html', {'data': data})
 
+
 def userdetails(request):
     v = User.objects.all()
     userFilter = UserFilter(request.GET, queryset=v)
@@ -18,7 +19,7 @@ def userdetails(request):
         'user': v,
         'userFilter': userFilter,
     }
-    return render(request, 'NurseView_temp/viewUser_Nurse.html', context)
+    return render(request, 'NurseView_temp/viewUser_Nurse.html',context)
 
 
 # def hospitaldetails(request):
@@ -34,7 +35,7 @@ def hospitaldetails(request):
         'hospital': v,
         'hospitalFilter': hospitalFilter,
     }
-    return render(request, 'NurseView_temp/viewHospital_Nurse.html', context)
+    return render(request, 'NurseView_temp/viewHospital_Nurse.html',context)
 
 
 def Add_Complaints(request):
@@ -95,7 +96,7 @@ def vaccinedetails(request):
     v = vaccineFilter.qs
     context = {
         'vaccine': v,
-        'VaccineFilter': vaccineFilter,
+        'vaccineFilter': vaccineFilter,
     }
     return render(request, 'NurseView_temp/viewVaccine_Nurse.html', context)
 

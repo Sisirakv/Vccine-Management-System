@@ -33,18 +33,26 @@
 						  <thead class="thead-dark">
 						    <tr>
 						      <th>user</th>
-						      <th>schedule</th>
+						      <th>Hospital</th>
+							  <th>Place</th>
+							  <th>Date</th>
+							  <th>Start Time</th>
+							  <th>End Time</th>
 						      <th>status</th>
 						      <th>vaccine_name</th>
 <!--							  <th>vaccinated</th>-->
 						    </tr>
 						  </thead>
 						  <tbody>
-						  {% for i in data %}
+						  {% for i in placeFilter.qs %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
 						      <td>{{i.user}}</td>
-						      <td>{{i.schedule.}}</td>
+						      <td>{{i.schedule.hospital}}</td>
+							  <td>{{i.schedule.hospital.place}}</td>
+							  <td>{{i.schedule.date}}</td>
+							  <th>{{i.schedule.start_time}}</th>
+							  <th>{{i.schedule.end_time}}</th>
 						      <td>{{i.status}}</td>
 						      <td>{{i.vaccine_name}}</td>
 <!--						      <td>{{i.vaccinated}}</td>-->

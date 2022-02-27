@@ -46,7 +46,7 @@ urlpatterns = [
 
 
  path('User_page',views.userHome,name='User_page'),
- path('User_profile', User_View.user_profile, name='User_profile'),
+ path('User_profile', User_View.Userprofile, name='User_profile'),
  path('User_Complaints',User_View.Add_Complaints,name='User_Complaints'),
  path('Fix_Schedule', User_View.fixschedules, name='Fix_Schedule'),
  path('Your_Complaints', User_View.compaintview, name='Your_Complaints'),

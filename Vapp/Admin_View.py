@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 
 # from Vapp.filters import OrderFilter
+from Vapp.filter import *
 from Vapp.form import *
 
 
@@ -17,21 +18,52 @@ def Add_Hospitals(request):
     return render(request, 'AdminView_temp/Add_Hospitals.html', {'form': form})
 
 
-def viewnurse(request):
-    data = nurse.objects.all()
-    # tableFilter = OrderFilter(request.GET,queryset=data)
-    # data = myFilter.qs
-    return render(request, 'AdminView_temp/viewNurse.html', {'data': data})
+# def viewnurse(request):
+#     data = nurse.objects.all()
+#     # tableFilter = OrderFilter(request.GET,queryset=data)
+#     # data = myFilter.qs
+#     return render(request, 'AdminView_temp/viewNurse.html', {'data': data})
 
+def viewnurse(request):
+    v = nurse.objects.all()
+    nurseFilter = NurseFilter(request.GET, queryset=v)
+    v = nurseFilter.qs
+    context = {
+        'user': v,
+        'nurseFilter': nurseFilter,
+    }
+    return render(request, 'AdminView_temp/viewNurse.html', context)
+
+
+# def viewuser(request):
+#     data = User.objects.all()
+#     return render(request, 'AdminView_temp/viewUser.html', {'data': data})
 
 def viewuser(request):
-    data = User.objects.all()
-    return render(request, 'AdminView_temp/viewUser.html', {'data': data})
+    v = User.objects.all()
+    userFilter = UserFilter(request.GET, queryset=v)
+    v = userFilter.qs
+    context = {
+        'user': v,
+        'userFilter': userFilter,
+    }
+    return render(request, 'AdminView_temp/viewUser.html', context)
+
+
+# def viewhospital(request):
+#     data = Hospital.objects.all()
+#     return render(request, 'AdminView_temp/viewHospital.html', {'data': data})
 
 
 def viewhospital(request):
-    data = Hospital.objects.all()
-    return render(request, 'AdminView_temp/viewHospital.html', {'data': data})
+    v = Hospital.objects.all()
+    hospitalFilter = HospitalFilter(request.GET, queryset=v)
+    v = hospitalFilter.qs
+    context = {
+        'hospital': v,
+        'hospitalFilter': hospitalFilter,
+    }
+    return render(request, 'AdminView_temp/viewHospital.html', context)
 
 
 def Add_Vaccine(request):
@@ -45,14 +77,35 @@ def Add_Vaccine(request):
     return render(request, 'AdminView_temp/Add_Vaccine.html', {'form': form})
 
 
+# def viewvaccine(request):
+#     data = Vaccine.objects.all()
+#     return render(request, 'AdminView_temp/viewVaccine.html', {'data': data})
+
 def viewvaccine(request):
-    data = Vaccine.objects.all()
-    return render(request, 'AdminView_temp/viewVaccine.html', {'data': data})
+    v = Vaccine.objects.all()
+    vaccineFilter = VaccineFilter(request.GET, queryset=v)
+    v = vaccineFilter.qs
+    context = {
+        'vaccine': v,
+        'vaccineFilter': vaccineFilter,
+    }
+    return render(request, 'AdminView_temp/viewVaccine.html', context)
 
 
 def viewappointments(request):
-    data = Appointment_Details.objects.all()
-    return render(request, 'AdminView_temp/viewAppointments.html', {'data': data})
+    v = Appointment_Details.objects.all()
+    placeFilter = PlaceFilter(request.GET, queryset=v)
+    v = placeFilter.qs
+    context = {
+        'user': v,
+        'placeFilter': placeFilter,
+    }
+    return render(request, 'AdminView_temp/viewAppointments.html', context)
+
+
+# def viewappointments(request):
+#     data = Appointment_Details.objects.all()
+#     return render(request, 'AdminView_temp/viewAppointments.html', {'data': data})
 
 
 def appointments(request):
@@ -118,6 +171,6 @@ def reply_complaint(request, id):
         r = request.POST.get('reply')
         complaint.reply = r
         complaint.save()
-        messages.info(request,'Reply send for complaints')
+        messages.info(request, 'Reply send for complaints')
         return redirect('View_Complaints')
-    return render(request,'AdminView_temp/Reply.html',{'complaint':complaint})
+    return render(request, 'AdminView_temp/Reply.html', {'complaint': complaint})

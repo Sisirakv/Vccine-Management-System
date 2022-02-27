@@ -28,6 +28,13 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
+					<form method="get" class="form-inline" style="float:right;">
+						<div class="md-form my-0">
+							{{nurseFilter.form}}
+							<button class="btn btn-primary mr-2" type="submit">Search</button>
+						</div>
+					</form>
+					<br><br><br>
 					<div class="table-wrap">
 						<table class="table">
 						  <thead class="thead-dark">
@@ -40,7 +47,7 @@
 						    </tr>
 						  </thead>
 						  <tbody>
-						  {% for i in data %}
+						  {% for i in nurseFilter.qs %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
 						      <td>{{i.name}}</td>

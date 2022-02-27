@@ -9,7 +9,7 @@ class Login(AbstractUser):
 
 
 class User(models.Model):
-    user = models.ForeignKey(Login, on_delete=models.CASCADE,null=True)
+    user = models.ForeignKey(Login, on_delete=models.CASCADE)
     Name = models.CharField(max_length=20)
     Address = models.TextField()
     contact_no = models.IntegerField()
@@ -62,7 +62,7 @@ class Reportcard(models.Model):
 
 
 class Schedule(models.Model):
-    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE,null=True)
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
