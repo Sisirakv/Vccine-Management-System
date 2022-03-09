@@ -23,9 +23,10 @@ def Add_Complaints(request):
 #     data = User.objects.filter()
 #     return render(request, 'UserView_temp/Profile.html', {'data': data})
 
-def Userprofile(request):
-    u = request.user
+def user_profile(request):
+    u = Login.objects.get(user=request.user)
     profile = User.objects.filter(user=u)
+    print(profile)
     return render(request, 'UserView_temp/Profile.html', {'profile': profile})
 
 
@@ -75,22 +76,28 @@ def complaintUpdate_user(request, id=None):
     return render(request, 'UserView_temp/Complaint.html', {'form': form})
 
 
-def take_appointment(request):
-    schedule = Schedule.objects.get(schedule=request.schedule)
-    u = User.objects.get(user=request.user)
+def take_appointment(request, id):
+    schedule = Schedule.objects.get(id=id)
+    u = User.objects.get()
     appointment = Appointment_Details.objects.filter(user=u, schedule=schedule)
-    if appointment.exist():
+    if appointment.exists():
         messages.info(request, "You have already requested to this Schedule")
-        return redirect('Schedule_Details')
+        return redirect('Appointment')
     else:
         if request.method == 'POST':
-            obj = appointment()
+            obj = Appointment_Details()
             obj.user = u
             obj.schedule = schedule
             obj.save()
             messages.info(request, "Appointment Booked Successfully")
-            return redirect('Appointments_Details')
+            return redirect('Appointment')
     return render(request, 'UserView_temp/TakeAppointment.html', {'schedule': schedule})
+
+
+def appointment(request):
+    u = User.objects.get()
+    a = Appointment_Details.objects.filter(user=u)
+    return render(request,'UserView_temp/appointments.html',{'appointment':a})
 
 
 def report(request):

@@ -56,11 +56,11 @@ def nurse_register(request):
         login_form = LoginRegister(request.POST)
         nurse_form = NurseRegistration(request.POST)
         if login_form.is_valid() and nurse_form.is_valid():
-            login = login_form.save(commit=False)
-            login.is_nurse = True
-            login.save()
+            user = login_form.save(commit=False)
+            user.is_nurse = True
+            user.save()
             nurse = nurse_form.save(commit=False)
-            nurse.login = login
+            nurse.user = user
             nurse.save()
             messages.info(request, 'Nurse Registration Successfully')
             return redirect('login')
@@ -73,12 +73,12 @@ def user_register(request):
         login_form = LoginRegister(request.POST)
         user_form = UserRegistration(request.POST)
         if login_form.is_valid() and user_form.is_valid():
-            login = login_form.save(commit=False)
-            login.is_user = True
-            login.save()
-            user = user_form.save(commit=False)
-            user.login = login
+            user = login_form.save(commit=False)
+            user.is_user = True
             user.save()
+            c = user_form.save(commit=False)
+            c.user = user
+            c.save()
             messages.info(request, 'User Registration Successfully')
             return redirect('login')
     return render(request, 'UserRegister.html', {'login_form': login_form, 'user_form': user_form})

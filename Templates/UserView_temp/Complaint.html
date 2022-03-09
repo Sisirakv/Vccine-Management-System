@@ -43,6 +43,11 @@
                             </div>
 <!--                        </div>-->
 <!--                    </div>-->
+                {% for message in messages %}
+                <div class="alert alert-primary" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
             </form><!-- End General Form Elements -->
 
 

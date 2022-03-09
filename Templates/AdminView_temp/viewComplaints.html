@@ -49,10 +49,10 @@
 						      <td>{{i.date}}</td>
 
 								<td>
-									{% if i.reply == None %}
-									<a href="'{% url 'Reply' i.id %} ">Reply Now</a>
-									{% else %}
-									{{i.reply}}
+									{% if i.Reply == None %}
+									<a href="{% url 'Reply' i.id %} ">Reply Now</a>
+									{% elif i.Reply == True %}
+									{{ i.reply }}
 									{% endif %}
 								</td>
 						    </tr>

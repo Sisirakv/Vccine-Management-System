@@ -9,7 +9,7 @@ class Login(AbstractUser):
 
 
 class User(models.Model):
-    user = models.ForeignKey(Login, on_delete=models.CASCADE)
+    user = models.OneToOneField(Login, on_delete=models.CASCADE, related_name='user')
     Name = models.CharField(max_length=20)
     Address = models.TextField()
     contact_no = models.IntegerField()
@@ -33,6 +33,7 @@ class Hospital(models.Model):
 
 
 class nurse(models.Model):
+    user = models.OneToOneField(Login, on_delete=models.CASCADE, related_name='nurse')
     name = models.CharField(max_length=20)
     address = models.TextField()
     Email = models.CharField(max_length=20)
@@ -48,6 +49,7 @@ class Vaccine(models.Model):
     vaccine_name = models.CharField(max_length=50)
     vaccine_type = models.CharField(max_length=50)
     Description = models.CharField(max_length=50)
+    approval_status = models.IntegerField(default=0)
 
     def __str__(self):
         return self.vaccine_name
@@ -69,16 +71,18 @@ class Schedule(models.Model):
 
 
 class Appointment_Details(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Appointment_Details')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='appointment')
     schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
-    status = models.CharField(max_length=20)
-    vaccine_name = models.ForeignKey(Vaccine, on_delete=models.CASCADE)
-    # vaccinated = models.CharField(max_length=20)
+    status = models.IntegerField(default=0)
+    vaccine_name = models.ForeignKey(Vaccine, on_delete=models.DO_NOTHING, null=True, blank=True)
+    vaccinated = models.BooleanField(default=False)
 
 
 class Complaint_Details(models.Model):
-    user = models.ForeignKey(Login, on_delete=models.CASCADE)
+    user = models.ForeignKey(Login, on_delete=models.CASCADE,null=True,blank=True)
     subject = models.CharField(max_length=50)
     complaint = models.CharField(max_length=50)
     date = models.DateField()
-    reply = models.CharField(max_length=50)
+    reply = models.TextField(null=True, blank=True)
+
+

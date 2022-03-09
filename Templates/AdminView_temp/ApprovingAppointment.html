@@ -49,16 +49,22 @@
 							  <td>{{i.schedule.hospital}}</td>
 						      <td>{{i.schedule.start_time}}</td>
 						      <td>{{i.schedule.end_time}}</td>
-						      <td>
-								  {% if i.status == 0 %}
-								  <button type="button" class="btn btn-warning">Approval Pending</button>
-								  {% elif i.status == 1 %}
-								  <button type="button" class="btn btn-success">Appointment Confirmed</button>
-								  {% else %}
-								  <button type="button" class="btn btn-danger">Rejected</button>
+							  <td>
+								{% if i.status == 0 %}
+								<a type="submit" class="btn btn-success" href="{% url 'approve_appointment' i.id %}">Approve</a>
+									<form action="{% url 'reject_appointment' i.id %}" method="post" style="display: inline;">
+										{% csrf_token %}
+										<input type="hidden" value="{{ i.id }}"/>
+										<button type="submit" class="btn btn-danger">Reject</Button>
+									</form>
+									{% elif i.status == 1 %}
 
-								  {% endif %}
-							  </td>
+									<button type="button" class="btn btn-success">Appointment Confirmed</button>
+
+									{% else %}
+									<button type="button" class="btn btn-danger">Rejected</button>
+									{% endif %}
+                    			</td>
 						    </tr>
 
 						  </tbody>

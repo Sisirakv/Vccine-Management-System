@@ -1,7 +1,6 @@
 {% extends 'Nurse_Home.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
-{% load crispy_forms_filters %}
 
 <section class="section">
   <div class="row">
@@ -10,6 +9,8 @@
         <div class="card-body">
           <h3 class="card-title">General Form Elements</h3><br><br>
             <form method="post">{% csrf_token %}
+
+<!--                {{form|crispy}}-->
 
                 <h2 class="card-inside-title"></h2>
                     <div class="row clearfix">
@@ -42,6 +43,11 @@
 
                         </div>
                     </div>
+                 {% for message in messages %}
+                <div class="alert alert-primary" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
             </form>
 
         </div>

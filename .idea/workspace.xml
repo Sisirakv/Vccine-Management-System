@@ -10,8 +10,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,14 +39,14 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/vaccination management system/code/vaccination_management_system" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Templates/NurseView_temp" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Vapp" />
       <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Templates\NurseView_temp" />
-      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Templates\AdminView_temp" />
       <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Templates\UserView_temp" />
+      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Vapp" />
+      <recent name="C:\Users\Sisira K V\OneDrive\Desktop\Futura\Vccine-Management-System\Templates\AdminView_temp" />
       <recent name="C:\Users\Sisira K V\Desktop\Futura\Vccine-Management-System\Templates\NurseView_temp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -70,7 +70,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Vapp/Nurse_View.py</url>
-          <line>97</line>
+          <line>99</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

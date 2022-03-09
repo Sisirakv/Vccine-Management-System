@@ -38,8 +38,8 @@
 							  <th>Date</th>
 							  <th>Start Time</th>
 							  <th>End Time</th>
-						      <th>status</th>
 						      <th>vaccine_name</th>
+							  <th>status</th>
 <!--							  <th>vaccinated</th>-->
 						    </tr>
 						  </thead>
@@ -53,9 +53,14 @@
 							  <td>{{i.schedule.date}}</td>
 							  <th>{{i.schedule.start_time}}</th>
 							  <th>{{i.schedule.end_time}}</th>
-						      <td>{{i.status}}</td>
-						      <td>{{i.vaccine_name}}</td>
-<!--						      <td>{{i.vaccinated}}</td>-->
+						      <td>{{i.vaccine_name.vaccine_name}}</td>
+							  <td>
+								{% if i.vaccinated == False %}
+								<button type="button" class="btn btn-warning">Un Availed</button>
+								{% elif i.status == True %}
+								<button type="button" class="btn btn-success">Vaccinated</button>
+								{% endif %}
+							</td>
 						    </tr>
 
 						  </tbody>

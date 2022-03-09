@@ -26,8 +26,16 @@
                 <label>End Time</label>
                 <input required class="form-group" readonly value="{{schedule.end_time}}">
             </div>
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        {% for message in messages %}
+        <div class="alert alert-primary" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
     </form>
   </div>
 </body>
 </html>
+
+{% endblock %}

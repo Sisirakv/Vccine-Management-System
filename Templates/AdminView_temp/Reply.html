@@ -13,16 +13,30 @@
 
               <!-- General Form Elements -->
             <form method="post">{% csrf_token %}
-                <h2 class="card-inside-title"></h2>
-<!--                    <div class="row clearfix">-->
-<!--                        <div class="col-sm-12">-->
-                            <div class="row mb-5">
-                                <label>Reply</label>
-                                <div class="col-sm-10">
-                                    <textarea name="Reply" rows="4" cols="50"></textarea>
-                                </div>
+                <div class="form-group">
+                    <label class=" form-control-label">Subject</label>
+                    <input  required  class="form-control" readonly value="{{complaint.subject}}">
 
-                            </div>
+                </div>
+                 <div class="form-group">
+                    <label class=" form-control-label">Complaint</label>
+                    <input  required  class="form-control" readonly value="{{complaint.complaint}}">
+
+                </div>
+                 <div class="form-group">
+                    <label for="company" class=" form-control-label">Reply</label>
+                    <textarea cols="5" rows="7" required id="company" class="form-control" name="reply">
+                </textarea>
+                </div>
+
+                <div class="form-actions form-group ">
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                </div>
+                    {% for message in messages %}
+                    <div class="alert alert-primary" role="alert">
+                        {{message}}
+                    </div>
+                    {% endfor %}
             </form><!-- End General Form Elements -->
 
 

@@ -168,9 +168,25 @@ def vaccineUpdate(request, id=None):
 def reply_complaint(request, id):
     complaint = Login.objects.get(id=id)
     if request.method == 'POST':
-        r = request.POST.get('reply')
+        r = request.POST.get('Reply')
         complaint.reply = r
         complaint.save()
         messages.info(request, 'Reply send for complaints')
         return redirect('View_Complaints')
     return render(request, 'AdminView_temp/Reply.html', {'complaint': complaint})
+
+
+def approve_appointment(request, id):
+    n = Appointment_Details.objects.get(id=id)
+    n.status = 1
+    n.save()
+    messages.info(request, 'Appointment  Confirmed')
+    return redirect('View_Appointments')
+
+
+def reject_appointment(request, id):
+    n = Appointment_Details.objects.get(id=id)
+    n.status = 2
+    n.save()
+    messages.info(request, 'Appointment Rejected')
+    return redirect('View_Appointments')

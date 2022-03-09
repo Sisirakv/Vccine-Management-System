@@ -73,7 +73,7 @@ class scheduleform(forms.ModelForm):
 class complaintform(forms.ModelForm):
     class Meta:
         model = Complaint_Details
-        fields = ('user', 'subject', 'complaint', 'date')
+        fields = ('subject', 'complaint', 'date')
 
 
 class replyform(forms.ModelForm):

@@ -9,6 +9,11 @@
             {{form|crispy}}
       <br>   <input type="submit" name="submit" value="submit" class="btn btn-primary"><br><br>
         </div>
+        {% for message in messages %}
+        <div class="alert alert-primary" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
     </form>
 </div>
 
