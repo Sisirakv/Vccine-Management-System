@@ -2,8 +2,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, logout
 from django.shortcuts import render, redirect
 from Vapp.form import *
-# Create your views here.
 
+
+# Create your views here.
 
 
 def ind(request):
@@ -45,6 +46,7 @@ def login_views(request):
 def nurseHome(request):
     return render(request, 'Nurse_Home.html')
 
+
 def userHome(request):
     return render(request, 'User_Home.html')
 
@@ -66,6 +68,7 @@ def nurse_register(request):
             return redirect('login')
     return render(request, 'NurseRegister.html', {'login_form': login_form, 'nurse_form': nurse_form})
 
+
 def user_register(request):
     login_form = LoginRegister()
     user_form = UserRegistration()
@@ -82,7 +85,3 @@ def user_register(request):
             messages.info(request, 'User Registration Successfully')
             return redirect('login')
     return render(request, 'UserRegister.html', {'login_form': login_form, 'user_form': user_form})
-
-
-
-
