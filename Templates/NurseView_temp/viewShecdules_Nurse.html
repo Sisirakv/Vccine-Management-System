@@ -38,6 +38,7 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
+								<th>SI NO</th>
 						      <th>hospital</th>
 						      <th>date</th>
 						      <th>start_time</th>
@@ -51,6 +52,7 @@
 						  {% for i in scheduleFilter.qs %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
+								<th scope="row">{{forloop.counter}}</th>
 						      <td>{{i.hospital}}</td>
 						      <td>{{i.date}}</td>
 						      <td>{{i.start_time}}</td>

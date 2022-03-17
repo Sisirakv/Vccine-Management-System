@@ -11,8 +11,8 @@
                     <select name="vaccine" class="form-control-lg form-control">
                         <option >Select Vaccine</option>
 
-                        {% for v in vaccine %}
-                        <option value="{{v.id}}">{{v.vaccine_name}}</option>
+                        {% for i in vaccine %}
+                        <option value="{{i.id}}">{{i.vaccine_name}}</option>
                         {% endfor %}
                     </select>
 

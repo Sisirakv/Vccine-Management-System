@@ -46,7 +46,7 @@ def Add_Complaints(request):
             form.save()
             print('hi')
             messages.info(request, 'Successfully added')
-            return redirect('Nurse_page')
+            return redirect('Complaint_Details')
     # else:
     #     form = complaintform()
     return render(request, 'NurseView_temp/Add_Complaint.html', {'form': form})
@@ -210,7 +210,7 @@ def mark_vaccinated(request, id):
             return redirect('Schedule_Details')
     except ValueError:
         messages.info(request, 'Please Select a Vaccine')
-    return render(request, 'NurseView_temp/viewAppointments_Nurse.html', context)
+    return render(request, 'NurseView_temp/mark_vaccinated.html', context)
 
 
 

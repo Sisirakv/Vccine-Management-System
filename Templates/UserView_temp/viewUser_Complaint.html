@@ -32,6 +32,7 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
+								<th>SI NO</th>
 						      <th>user</th>
 						      <th>subject</th>
 						      <th>complaint</th>
@@ -46,11 +47,18 @@
 						  {% for i in data %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
+								<th scope="row">{{forloop.counter}}</th>
 						      <td>{{i.user}}</td>
 						      <td>{{i.subject}}</td>
 						      <td>{{i.complaint}}</td>
 						      <td>{{i.date}}</td>
-						      <td>{{i.reply}}</td>
+						      <td>
+								{% if i.reply == None %}
+								<p>No Reply Yet..</p>
+								{% else %}
+								{{i.reply}}
+								{% endif %}
+							  </td>
 							  <td><a href="{% url 'Update_Complaint_User' i.id %}"><button class="btn btn-success">Update</button></a></td>
 							  <td><a href="{% url 'Delete_Complaint_User' i.id %}"><button class="btn btn-danger">Delete</button></a></td>
 

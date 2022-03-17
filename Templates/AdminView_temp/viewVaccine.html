@@ -32,6 +32,7 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
+								<th>SI NO</th>
 						      <th>vaccine_name</th>
 						      <th>vaccine_type</th>
 						      <th>Description</th>
@@ -44,6 +45,7 @@
 						  {% for i in vaccineFilter.qs %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
+								<th scope="row">{{forloop.counter}}</th>
 						      <td>{{i.vaccine_name}}</td>
 						      <td>{{i.vaccine_type}}</td>
 						      <td>{{i.Description}}</td>

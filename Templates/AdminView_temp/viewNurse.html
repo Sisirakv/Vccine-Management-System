@@ -39,6 +39,7 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
+								<th>SI NO</th>
 						      <th>name</th>
 						      <th>address</th>
 						      <th>Email</th>
@@ -50,6 +51,7 @@
 						  {% for i in nurseFilter.qs %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
+								<th scope="row">{{forloop.counter}}</th>
 						      <td>{{i.name}}</td>
 						      <td>{{i.address}}</td>
 						      <td>{{i.Email}}</td>

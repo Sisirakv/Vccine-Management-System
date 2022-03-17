@@ -32,6 +32,7 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
+								<th>SI NO</th>
 						      <th>user</th>
 						      <th>Hospital</th>
 							  <th>Place</th>
@@ -47,6 +48,7 @@
 						  {% for i in placeFilter.qs %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
+							  <th scope="row">{{forloop.counter}}</th>
 						      <td>{{i.user}}</td>
 						      <td>{{i.schedule.hospital}}</td>
 							  <td>{{i.schedule.hospital.place}}</td>
@@ -57,7 +59,7 @@
 							  <td>
 								{% if i.vaccinated == False %}
 								<button type="button" class="btn btn-warning">Un Availed</button>
-								{% elif i.status == True %}
+								{% elif i.vaccinated == True %}
 								<button type="button" class="btn btn-success">Vaccinated</button>
 								{% endif %}
 							</td>

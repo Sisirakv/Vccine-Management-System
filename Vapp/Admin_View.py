@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 # from Vapp.filters import OrderFilter
@@ -7,6 +8,7 @@ from Vapp.filter import *
 from Vapp.form import *
 
 
+# @login_required(login_url='login')
 def Add_Hospitals(request):
     form = hospitalform()
     if request.method == "POST":
@@ -18,12 +20,7 @@ def Add_Hospitals(request):
     return render(request, 'AdminView_temp/Add_Hospitals.html', {'form': form})
 
 
-# def viewnurse(request):
-#     data = nurse.objects.all()
-#     # tableFilter = OrderFilter(request.GET,queryset=data)
-#     # data = myFilter.qs
-#     return render(request, 'AdminView_temp/viewNurse.html', {'data': data})
-
+# @login_required(login_url='login')
 def viewnurse(request):
     v = nurse.objects.all()
     nurseFilter = NurseFilter(request.GET, queryset=v)
@@ -35,10 +32,7 @@ def viewnurse(request):
     return render(request, 'AdminView_temp/viewNurse.html', context)
 
 
-# def viewuser(request):
-#     data = User.objects.all()
-#     return render(request, 'AdminView_temp/viewUser.html', {'data': data})
-
+# @login_required(login_url='login')
 def viewuser(request):
     v = User.objects.all()
     userFilter = UserFilter(request.GET, queryset=v)
@@ -50,11 +44,7 @@ def viewuser(request):
     return render(request, 'AdminView_temp/viewUser.html', context)
 
 
-# def viewhospital(request):
-#     data = Hospital.objects.all()
-#     return render(request, 'AdminView_temp/viewHospital.html', {'data': data})
-
-
+# @login_required(login_url='login')
 def viewhospital(request):
     v = Hospital.objects.all()
     hospitalFilter = HospitalFilter(request.GET, queryset=v)
@@ -66,6 +56,7 @@ def viewhospital(request):
     return render(request, 'AdminView_temp/viewHospital.html', context)
 
 
+# @login_required(login_url='login')
 def Add_Vaccine(request):
     form = vaccineform()
     if request.method == "POST":
@@ -77,10 +68,7 @@ def Add_Vaccine(request):
     return render(request, 'AdminView_temp/Add_Vaccine.html', {'form': form})
 
 
-# def viewvaccine(request):
-#     data = Vaccine.objects.all()
-#     return render(request, 'AdminView_temp/viewVaccine.html', {'data': data})
-
+# @login_required(login_url='login')
 def viewvaccine(request):
     v = Vaccine.objects.all()
     vaccineFilter = VaccineFilter(request.GET, queryset=v)
@@ -92,6 +80,7 @@ def viewvaccine(request):
     return render(request, 'AdminView_temp/viewVaccine.html', context)
 
 
+# @login_required(login_url='login')
 def viewappointments(request):
     v = Appointment_Details.objects.all()
     placeFilter = PlaceFilter(request.GET, queryset=v)
@@ -103,27 +92,26 @@ def viewappointments(request):
     return render(request, 'AdminView_temp/viewAppointments.html', context)
 
 
-# def viewappointments(request):
-#     data = Appointment_Details.objects.all()
-#     return render(request, 'AdminView_temp/viewAppointments.html', {'data': data})
-
-
+# @login_required(login_url='login')
 def appointments(request):
     data = Appointment_Details.objects.all()
     return render(request, 'AdminView_temp/ApprovingAppointment.html', {'data': data})
 
 
+# @login_required(login_url='login')
 def viewcomplaints(request):
     data = Complaint_Details.objects.all()
     return render(request, 'AdminView_temp/viewComplaints.html', {'data': data})
 
 
+# @login_required(login_url='login')
 def hospitalDelete(request, id=None):
     data = Hospital.objects.get(id=id)
     data.delete()
     return redirect('View_Hospital')
 
 
+# @login_required(login_url='login')
 def hospitalUpdate(request, id=None):
     n = Hospital.objects.get(id=id)
     if request.method == 'POST':
@@ -136,12 +124,14 @@ def hospitalUpdate(request, id=None):
     return render(request, 'AdminView_temp/Add_Hospitals.html', {'form': form})
 
 
+# @login_required(login_url='login')
 def vaccineDelete(request, id=None):
     data = Vaccine.objects.get(id=id)
     data.delete()
     return redirect('View_Vaccine')
 
 
+# @login_required(login_url='login')
 def vaccineUpdate(request, id=None):
     n = Vaccine.objects.get(id=id)
     if request.method == 'POST':
@@ -154,19 +144,9 @@ def vaccineUpdate(request, id=None):
     return render(request, 'AdminView_temp/Add_Vaccine.html', {'form': form})
 
 
-# def Add_Complaints(request):
-#     form = complaintform()
-#     if request.method == "POST":
-#         form = complaintform(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             messages.info(request, 'Successfully added')
-#             return redirect('User_page')
-#     return render(request, 'UserView_temp/Complaint.html', {'form': form})
-
-
+# @login_required(login_url='login')
 def reply_complaint(request, id):
-    complaint = Login.objects.get(id=id)
+    complaint = Complaint_Details.objects.get(id=id)
     if request.method == 'POST':
         r = request.POST.get('Reply')
         complaint.reply = r
@@ -176,6 +156,7 @@ def reply_complaint(request, id):
     return render(request, 'AdminView_temp/Reply.html', {'complaint': complaint})
 
 
+# @login_required(login_url='login')
 def approve_appointment(request, id):
     n = Appointment_Details.objects.get(id=id)
     n.status = 1
@@ -184,6 +165,7 @@ def approve_appointment(request, id):
     return redirect('View_Appointments')
 
 
+# @login_required(login_url='login')
 def reject_appointment(request, id):
     n = Appointment_Details.objects.get(id=id)
     n.status = 2

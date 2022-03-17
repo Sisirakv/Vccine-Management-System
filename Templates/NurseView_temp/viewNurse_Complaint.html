@@ -32,7 +32,7 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
-
+								<th>SI NO</th>
 						      <th>Subject</th>
 						      <th>Complaint</th>
 						      <th>Date</th>
@@ -46,17 +46,17 @@
 						  {% for i in data %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
-
+								<th scope="row">{{forloop.counter}}</th>
 						      <td>{{i.subject}}</td>
 						      <td>{{i.complaint}}</td>
 						      <td>{{i.date}}</td>
 						      <td>
-								  {% if i.reply == None %}
-								  <a href="{% url 'Reply' i.id %} ">Reply Now</a>
-								  {% else %}
-								  {{i.reply}}
-								  {% endif %}
-							  </td>
+								{% if i.reply == None %}
+								<p>No Reply Yet..</p>
+								{% else %}
+								{{i.reply}}
+								{% endif %}
+							 </td>
 						      <td><a href="{% url 'Update_Complaint' i.id %}"><button class="btn btn-success">Update</button></a></td>
 							  <td><a href="{% url 'Delete_Complaint' i.id %}"><button class="btn btn-danger">Delete</button></a></td>
 

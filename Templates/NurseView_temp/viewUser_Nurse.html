@@ -39,6 +39,7 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
+								<th>SI NO</th>
 						      <th>Name</th>
 						      <th>Address</th>
 						      <th>contact_no</th>
@@ -52,6 +53,7 @@
 						  {% for i in userFilter.qs %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
+								<th scope="row">{{forloop.counter}}</th>
 						      <td>{{i.Name}}</td>
 						      <td>{{i.Address}}</td>
 						      <td>{{i.contact_no}}</td>

@@ -32,6 +32,7 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
+								<th>SI NO</th>
 						      <th>User</th>
 						      <th>Date</th>
 						      <th>Hospital</th>
@@ -44,7 +45,8 @@
 						  {% for i in data %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
-						      <td>{{i.user}}</td>
+						      <th scope="row">{{forloop.counter}}</th>
+							  <td>{{i.user}}</td>
 						      <td>{{i.schedule.date}}</td>
 							  <td>{{i.schedule.hospital}}</td>
 						      <td>{{i.schedule.start_time}}</td>

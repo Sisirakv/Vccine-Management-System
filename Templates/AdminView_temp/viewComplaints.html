@@ -32,6 +32,8 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
+							  <th>SI No</th>
+							  <th>Type</th>
 						      <th>user</th>
 						      <th>subject</th>
 						      <th>complaint</th>
@@ -43,6 +45,14 @@
 						  {% for i in data %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
+								<th scope="row">{{forloop.counter}}</th>
+								<td>
+									{% if i.user.is_nurse == True %}
+									<p>Nurse</p>
+									{% elif i.user.is_user == True %}
+									<p>User</p>
+									{% endif %}
+								</td>
 						      <td>{{i.user}}</td>
 						      <td>{{i.subject}}</td>
 						      <td>{{i.complaint}}</td>
@@ -51,7 +61,7 @@
 								<td>
 									{% if i.Reply == None %}
 									<a href="{% url 'Reply' i.id %} ">Reply Now</a>
-									{% elif i.Reply == True %}
+									{% else %}
 									{{ i.reply }}
 									{% endif %}
 								</td>

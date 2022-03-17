@@ -32,31 +32,29 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
+								<th>SI NO</th>
 						      <th>user</th>
 						      <th>Hospital</th>
 							  <th>Date</th>
 							  <th>Start Time</th>
 							  <th>End Time</th>
 						      <th>status</th>
-						      <th>vaccine_name</th>
-							  <th>vaccinated</th>
 						    </tr>
 						  </thead>
 						  <tbody>
 						  {% for i in data %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
+								<th scope="row">{{forloop.counter}}</th>
 						      <td>{{i.user}}</td>
 						      <td>{{i.schedule.hospital}}</td>
 							  <td>{{i.schedule.date}}</td>
 							  <td>{{i.schedule.start_time}}</td>
 							  <td>{{i.schedule.end_time}}</td>
-						      <td>{{i.vaccine_name}}</td>
-						      <td>{{i.vaccinated}}</td>
 							 <td>
 									{% if i.vaccinated == False %}
 									<a type="button" class="btn btn-warning" href="{% url 'mark_vaccinated' i.id %}">Mark Vaccinated</a>
-									{% elif i.status == True %}
+									{% elif i.vaccinated == True %}
 									<button type="button" class="btn btn-success">Vaccinated</button>
 									{% endif %}
 							</td>
