@@ -17,17 +17,15 @@ def Add_Complaints(request):
     return render(request, 'UserView_temp/Complaint.html', {'form': form})
 
 
-# def user_profile(request):
-#     # data = User.objects.filter(user=request.user)
-#     # if request.user.is_active:
-#     data = User.objects.filter()
-#     return render(request, 'UserView_temp/Profile.html', {'data': data})
-
 def user_profile(request):
-    u = Login.objects.get(user=request.user)
-    profile = User.objects.filter(user=u)
-    print(profile)
-    return render(request, 'UserView_temp/Profile.html', {'profile': profile})
+    data = User.objects.filter()
+    return render(request, 'UserView_temp/Profile.html', {'data': data})
+
+# def user_profile(request):
+#     u = Login.objects.get(user=request.user)
+#     profile = User.objects.filter(user=u)
+#     print(profile)
+#     return render(request, 'UserView_temp/Profile.html', {'profile': profile})
 
 
 # def user_profile(request):

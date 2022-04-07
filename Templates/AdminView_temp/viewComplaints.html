@@ -1,5 +1,6 @@
 {% extends 'Admin_Home.html' %}
 {% block content %}
+{% load crispy_forms_tags %}
 
 <!doctype html>
 {% load static %}
@@ -34,7 +35,7 @@
 						    <tr>
 							  <th>SI No</th>
 							  <th>Type</th>
-						      <th>user</th>
+<!--						      <th>user</th>-->
 						      <th>subject</th>
 						      <th>complaint</th>
 						      <th>date</th>
@@ -50,14 +51,13 @@
 									{% if i.user.is_nurse == True %}
 									<p>Nurse</p>
 									{% elif i.user.is_user == True %}
-									<p>User</p>
-									{% endif %}
-								</td>
-						      <td>{{i.user}}</td>
-						      <td>{{i.subject}}</td>
-						      <td>{{i.complaint}}</td>
-						      <td>{{i.date}}</td>
-
+                                    <p>User</p>
+                                    {% endif %}
+                                </td>
+<!--                                <td>{{i.Name}}</td>-->
+                                <td>{{i.subject}}</td>
+						         <td>{{i.complaint}}</td>
+						         <td>{{i.date}}</td>
 								<td>
 									{% if i.Reply == None %}
 									<a href="{% url 'Reply' i.id %} ">Reply Now</a>
@@ -65,10 +65,11 @@
 									{{ i.reply }}
 									{% endif %}
 								</td>
+
 						    </tr>
 
 						  </tbody>
-							{% endfor %}
+                        {% endfor %}
 						</table>
 					</div>
 				</div>
