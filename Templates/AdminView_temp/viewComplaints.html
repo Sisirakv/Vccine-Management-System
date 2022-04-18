@@ -48,9 +48,9 @@
 <!--							<th scope="row">001</th>-->
 								<th scope="row">{{forloop.counter}}</th>
 								<td>
-									{% if i.user.is_nurse == True %}
+									{% i.user.is_nurse == True %}
 									<p>Nurse</p>
-									{% elif i.user.is_user == True %}
+									{% i.user.is_user == True %}
                                     <p>User</p>
                                     {% endif %}
                                 </td>

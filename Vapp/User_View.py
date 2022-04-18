@@ -59,7 +59,7 @@ def compaintview(request):
 def complaintDelete_User(request, id=None):
     data = Complaint_Details.objects.get(id=id)
     data.delete()
-    return redirect('Your_Complaints')
+    return redirect(request,'Your_Complaints')
 
 
 def complaintUpdate_user(request, id=None):
