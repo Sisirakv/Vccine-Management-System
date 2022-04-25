@@ -16,7 +16,7 @@ def Add_Hospitals(request):
         if form.is_valid():
             form.save()
             messages.info(request, 'Successfully added')
-            return redirect('admin_page')
+            return redirect('View_Hospital')
     return render(request, 'AdminView_temp/Add_Hospitals.html', {'form': form})
 
 
@@ -64,7 +64,7 @@ def Add_Vaccine(request):
         if form.is_valid():
             form.save()
             messages.info(request, 'Vaccine Successfully added')
-            return redirect('admin_page')
+            return redirect('View_Vaccine')
     return render(request, 'AdminView_temp/Add_Vaccine.html', {'form': form})
 
 
@@ -101,7 +101,7 @@ def appointments(request):
 # @login_required(login_url='login')
 def viewcomplaints(request):
     data = Complaint_Details.objects.all()
-    return render(request, 'AdminView_temp/viewComplaints.html', {'data': data})
+    return render(request, 'AdminView_temp/viewComplaints.html', {'complaint': data})
 
 
 # @login_required(login_url='login')
@@ -148,7 +148,7 @@ def vaccineUpdate(request, id=None):
 def reply_complaint(request, id):
     complaint = Complaint_Details.objects.get(id=id)
     if request.method == 'POST':
-        r = request.POST.get('Reply')
+        r = request.POST.get('reply')
         complaint.reply = r
         complaint.save()
         messages.info(request, 'Reply send for complaints')

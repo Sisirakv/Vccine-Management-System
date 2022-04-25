@@ -1,10 +1,9 @@
 {% extends 'Admin_Home.html' %}
 {% block content %}
-{% load crispy_forms_tags %}
+<!--{% load crispy_forms_tags %}-->
 
 <!doctype html>
 {% load static %}
-
 
 <html lang="en">
   <head>
@@ -21,7 +20,8 @@
 	</head>
 	<body>
 
-<div class="card">
+
+	<div class="card">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
 					<h2 class="heading-section">Complaint Details</h2>
@@ -35,7 +35,7 @@
 						    <tr>
 							  <th>SI No</th>
 							  <th>Type</th>
-<!--						      <th>user</th>-->
+						      <th>user</th>
 						      <th>subject</th>
 						      <th>complaint</th>
 						      <th>date</th>
@@ -43,23 +43,23 @@
 						    </tr>
 						  </thead>
 						  <tbody>
-						  {% for i in data %}
+						  {% for i in complaint %}
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
 								<th scope="row">{{forloop.counter}}</th>
 								<td>
-									{% i.user.is_nurse == True %}
+									{% if i.user.is_nurse == True %}
 									<p>Nurse</p>
-									{% i.user.is_user == True %}
+									{% elif i.user.is_user == True %}
                                     <p>User</p>
                                     {% endif %}
                                 </td>
-<!--                                <td>{{i.Name}}</td>-->
+                                <td>{{i.user}}</td>
                                 <td>{{i.subject}}</td>
 						         <td>{{i.complaint}}</td>
 						         <td>{{i.date}}</td>
 								<td>
-									{% if i.Reply == None %}
+									{% if i.reply == None %}
 									<a href="{% url 'Reply' i.id %} ">Reply Now</a>
 									{% else %}
 									{{ i.reply }}
@@ -74,7 +74,14 @@
 					</div>
 				</div>
 			</div>
+		<div class="col-lg-10">
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
 		</div>
+	</div>
 	</section>
 
 	<script src=" {% static 'assets_tab/js/jquery.min.js' %} "></script>
@@ -83,6 +90,7 @@
   <script src=" {% static 'assets_tab/js/main.js' %} "></script>
 
 	</body>
+
 </html>
 
 {% endblock %}

@@ -19,7 +19,7 @@ class User(models.Model):
     Recent_vaccination = models.DateField()
 
     def __str__(self):
-        return self.Child_name
+        return self.Name
 
 
 class Hospital(models.Model):
@@ -38,7 +38,6 @@ class nurse(models.Model):
     address = models.TextField()
     Email = models.CharField(max_length=20)
     contact_no = models.IntegerField()
-    # log = models.ForeignKey(Login, on_delete=models.CASCADE)
     Hospital_name = models.ForeignKey(Hospital, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -79,7 +78,7 @@ class Appointment_Details(models.Model):
 
 
 class Complaint_Details(models.Model):
-    user = models.ForeignKey(Login, on_delete=models.CASCADE,null=True,blank=True)
+    user = models.ForeignKey(Login, on_delete=models.DO_NOTHING)
     subject = models.CharField(max_length=50)
     complaint = models.CharField(max_length=50)
     date = models.DateField()

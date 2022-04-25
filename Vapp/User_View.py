@@ -11,20 +11,26 @@ def Add_Complaints(request):
         if form.is_valid():
             form.save()
             messages.info(request, 'Successfully added')
-            return redirect('User_page')
-        else:
-            form = complaintform(request.POST)
+            return redirect('Your_Complaints')
+        # else:
+        #     form = complaintform(request.POST)
     return render(request, 'UserView_temp/Complaint.html', {'form': form})
 
 
+#
 def user_profile(request):
     data = User.objects.filter()
     return render(request, 'UserView_temp/Profile.html', {'data': data})
 
 # def user_profile(request):
-#     u = Login.objects.get(user=request.user)
+#     u = request.user
+#     data = User.objects.filter(user=u)
+#     return render(request, 'UserView_temp/Profile.html', {'data': data})
+
+
+# def user_profile(request):
+#     u = Login.objects.filter().first()
 #     profile = User.objects.filter(user=u)
-#     print(profile)
 #     return render(request, 'UserView_temp/Profile.html', {'profile': profile})
 
 
@@ -56,10 +62,10 @@ def compaintview(request):
     return render(request, 'UserView_temp/viewUser_Complaint.html', {'data': data})
 
 
-def complaintDelete_User(request, id=None):
+def complaintDelete_User(request, id):
     data = Complaint_Details.objects.get(id=id)
     data.delete()
-    return redirect(request,'Your_Complaints')
+    return redirect('Your_Complaints')
 
 
 def complaintUpdate_user(request, id=None):
@@ -68,7 +74,7 @@ def complaintUpdate_user(request, id=None):
         form = complaintform(request.POST or None, instance=n)
         if form.is_valid():
             form.save()
-        return redirect('Complaint_Details')
+        return redirect('User_Complaints')
     else:
         form = complaintform(request.POST or None, instance=n)
     return render(request, 'UserView_temp/Complaint.html', {'form': form})
@@ -93,11 +99,18 @@ def take_appointment(request, id):
 
 
 def appointment(request):
-    u = User.objects.get()
+    u = User.objects.get(user=request.user.user)
     a = Appointment_Details.objects.filter(user=u)
-    return render(request,'UserView_temp/appointments.html',{'appointment':a})
+    return render(request, 'UserView_temp/appointments.html', {'appointment': a})
+
+
+# def report(request):
+#     data = Reportcard.objects.all()
+#     return render(request, 'UserView_temp/ReportCard.html', {'data': data})
 
 
 def report(request):
-    data = Reportcard.objects.all()
+    # user = request.user
+    u = User.objects.filter().first()
+    data = Reportcard.objects.filter(Patient=u)
     return render(request, 'UserView_temp/ReportCard.html', {'data': data})
