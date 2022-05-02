@@ -15,7 +15,7 @@ def Home(request):
     return render(request, 'Home_pagemain.html')
 
 
-def login(request):
+def Login(request):
     return render(request, 'login.html')
 
 
@@ -30,7 +30,7 @@ def login_views(request):
         password = request.POST.get('pass')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request)
+            login(request, user)
             if user.is_staff:
                 return redirect('admin_page')
             elif user.is_nurse:

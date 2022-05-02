@@ -1,5 +1,4 @@
 from django.contrib import messages
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from Vapp.form import *
 
@@ -17,40 +16,26 @@ def Add_Complaints(request):
     return render(request, 'UserView_temp/Complaint.html', {'form': form})
 
 
-#
 def user_profile(request):
-    data = User.objects.filter()
+    u = request.user
+    data = User.objects.filter(user=u)
     return render(request, 'UserView_temp/Profile.html', {'data': data})
 
-# def user_profile(request):
-#     u = request.user
-#     data = User.objects.filter(user=u)
-#     return render(request, 'UserView_temp/Profile.html', {'data': data})
 
+def profile_update(request, user_id):
+    profile = User.objects.get(user_id=user_id)
 
-# def user_profile(request):
-#     u = Login.objects.filter().first()
-#     profile = User.objects.filter(user=u)
-#     return render(request, 'UserView_temp/Profile.html', {'profile': profile})
+    if request.method == 'POST':
+        form = UserProfileUpdate(request.POST or None, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'Profile Updated Successfully')
+            return redirect('user_profile')
+    else:
+        form = UserProfileUpdate(instance=profile)
 
+    return render(request, 'UserView_temp/profile_update.html', {'form': form})
 
-# def user_profile(request):
-#     data = Hospital.objects.all()
-#     return render(request, 'UserView_temp/users-profile.html', {'data': data})
-
-# @login_required(login_url='login')
-# def profile_update(request,user_id):
-#     profile = User.objects.get(user_id=user_id)
-#     if request.method == 'POST':
-#         form = UserProfileUpdate(request.POST or None, instance=profile)
-#         if form.is_valid():
-#             form.save()
-#             messages.info(request,'Profile Updated Sucessfully')
-#             return redirect('user_profile')
-#     else:
-#         form = UserProfileUpdate(instance=profile)
-#
-#     return render(request,)
 
 def fixschedules(request):
     data = Schedule.objects.all()
@@ -82,7 +67,7 @@ def complaintUpdate_user(request, id=None):
 
 def take_appointment(request, id):
     schedule = Schedule.objects.get(id=id)
-    u = User.objects.get()
+    u = User.objects.get(user=request.user)
     appointment = Appointment_Details.objects.filter(user=u, schedule=schedule)
     if appointment.exists():
         messages.info(request, "You have already requested to this Schedule")
@@ -99,18 +84,13 @@ def take_appointment(request, id):
 
 
 def appointment(request):
-    u = User.objects.get(user=request.user.user)
+    u = User.objects.get(user=request.user)
     a = Appointment_Details.objects.filter(user=u)
     return render(request, 'UserView_temp/appointments.html', {'appointment': a})
 
 
-# def report(request):
-#     data = Reportcard.objects.all()
-#     return render(request, 'UserView_temp/ReportCard.html', {'data': data})
-
 
 def report(request):
-    # user = request.user
-    u = User.objects.filter().first()
+    u = User.objects.get(user=request.user)
     data = Reportcard.objects.filter(Patient=u)
     return render(request, 'UserView_temp/ReportCard.html', {'data': data})

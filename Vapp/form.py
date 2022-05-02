@@ -80,3 +80,13 @@ class replyform(forms.ModelForm):
     class Meta:
         model = Complaint_Details
         fields = ('reply',)
+
+
+class UserProfileUpdate(forms.ModelForm):
+    contact_no = forms.CharField(validators=[phone_number_validation])
+    Email = forms.CharField(validators=[
+        RegexValidator(regex='^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$', message='Please Enter a valid Email')])
+
+    class Meta:
+        model = User
+        fields = ('Name', 'Address', 'contact_no', 'Child_name', 'child_age', 'child_gender', 'Recent_vaccination')

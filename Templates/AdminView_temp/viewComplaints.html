@@ -34,8 +34,8 @@
 						  <thead class="thead-dark">
 						    <tr>
 							  <th>SI No</th>
-							  <th>Type</th>
-						      <th>user</th>
+<!--							  <th>Type</th>-->
+<!--						      <th>user</th>-->
 						      <th>subject</th>
 						      <th>complaint</th>
 						      <th>date</th>
@@ -47,14 +47,14 @@
 						    <tr class="alert" role="alert">
 <!--							<th scope="row">001</th>-->
 								<th scope="row">{{forloop.counter}}</th>
-								<td>
-									{% if i.user.is_nurse == True %}
-									<p>Nurse</p>
-									{% elif i.user.is_user == True %}
-                                    <p>User</p>
-                                    {% endif %}
-                                </td>
-                                <td>{{i.user}}</td>
+<!--								<td>-->
+<!--									{% if i.user.is_nurse == True %}-->
+<!--									<p>Nurse</p>-->
+<!--									{% elif i.user.is_user == True %}-->
+<!--                                    <p>User</p>-->
+<!--                                    {% endif %}-->
+<!--                                </td>-->
+<!--                                <td>{{i.user}}</td>-->
                                 <td>{{i.subject}}</td>
 						         <td>{{i.complaint}}</td>
 						         <td>{{i.date}}</td>

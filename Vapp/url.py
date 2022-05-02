@@ -59,6 +59,7 @@ urlpatterns = [
  path('Delete_Complaint_User/<int:id>/', User_View.complaintDelete_User, name='Delete_Complaint_User'),
  path('Update_Complaint_User/<int:id>/', User_View.complaintUpdate_user, name='Update_Complaint_User'),
  path('Report', User_View.report,name='Report'),
+ path('profile_update/<int:user_id>/', User_View.profile_update, name='profile_update'),
 
 
 ]

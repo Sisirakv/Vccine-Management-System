@@ -78,7 +78,7 @@ class Appointment_Details(models.Model):
 
 
 class Complaint_Details(models.Model):
-    user = models.ForeignKey(Login, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(Login, on_delete=models.DO_NOTHING, null=True, blank=True)
     subject = models.CharField(max_length=50)
     complaint = models.CharField(max_length=50)
     date = models.DateField()

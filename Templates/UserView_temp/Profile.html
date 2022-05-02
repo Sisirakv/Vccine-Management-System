@@ -57,7 +57,11 @@
 								  <th>Phone Number</th>
 								  <td>: {{i.contact_no}}</td>
 							  </tr>
-
+            <div class="card-text text-sm-center">
+                    <a href="{% url 'profile_update' i.user_id %}">
+                    <button type="button" class="btn btn-primary ">Update</button>
+                </a>
+            </div>
 							</tbody>
 								{% endfor %}
 						</table>
